@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.cpp
+BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+
+/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+utility
+-
+vector
+-
+string
+-
+algorithm
+-
+

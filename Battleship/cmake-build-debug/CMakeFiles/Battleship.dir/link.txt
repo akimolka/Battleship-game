@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Battleship.dir/main.cpp.o -o Battleship  -Wl,-rpath,/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug libEntities.dylib 
