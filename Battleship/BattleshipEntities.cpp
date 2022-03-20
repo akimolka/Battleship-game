@@ -25,13 +25,20 @@ bool Coord::operator<(const Coord &other) const {
     return y < other.y;
 }
 
+std::ostream& operator<<(std::ostream& out, const Coord& coord) {
+    out << char('A' + coord.x) << coord.y + 1;
+    return out;
+}
 
-Ship::Ship(std::vector<Coord> coords): body(std::move(coords)) {};
+
+Ship::Ship(std::vector<Coord> coords)
+    : body(std::move(coords)), state(std::vector<HitResult> (body.size(), HitResult::NONE)) {};
 
 Ship::Ship(const Coord& corner1, const Coord& corner2) { // upper-left and bottom-right
     for (int x = corner1.x; x <= corner2.x; x++)
         for (int y = corner1.y; y <= corner2.y; y++)
             body.emplace_back(x, y);
+    state.resize(body.size(), HitResult::NONE);
 }
 
 HitResult Ship::hit(const Coord& coord) {
@@ -49,8 +56,10 @@ HitResult Ship::hit(const Coord& coord) {
             killed = false;
             break;
         }
-    if (killed)
+    if (killed) {
         result = HitResult::KILL;
+        state.assign(body.size(), HitResult::KILL);
+    }
     return result;
 }
 
@@ -58,9 +67,6 @@ const std::vector<Coord>& Ship::get_coords() const {
     return body;
 }
 
-
-
-Cell::Cell(): state(HitResult::NONE) {}
 
 
 
@@ -102,7 +108,7 @@ bool Board::is_valid() {
 }
 
 Board::Board() {
-    board.resize(size, std::vector<Cell> (size));
+    board.resize(size, std::vector<HitResult> (size));
     ship_indices.resize(size, std::vector<int> (size, -1));
 }
 
@@ -126,7 +132,7 @@ bool Board::add_ships(const std::vector<Ship>& additional) {
     return true;
 }
 
-const std::vector<std::vector<Cell>>& Board::get_board() const {
+const std::vector<std::vector<HitResult>>& Board::get_board() const {
     return board;
 }
 
@@ -138,37 +144,41 @@ const std::vector<std::vector<int>>& Board::get_ships() const {
 
 HitResult Board::hit(const Coord& coord) {
     if (ship_indices[coord.x][coord.y] == -1) {
-        board[coord.x][coord.y].state = HitResult::MISS;
+        board[coord.x][coord.y] = HitResult::MISS;
         return HitResult::MISS;
     }
-    board[coord.x][coord.y].state = ships[ship_indices[coord.x][coord.y]].hit(coord);
-    return board[coord.x][coord.y].state;
+    board[coord.x][coord.y] = ships[ship_indices[coord.x][coord.y]].hit(coord);
+    if (board[coord.x][coord.y] == HitResult::KILL) {
+        for (Coord coord : ships[ship_indices[coord.x][coord.y]].get_coords())
+            board[coord.x][coord.y] = HitResult::KILL;
+    }
+    return board[coord.x][coord.y];
 }
 
 
-void Figure::rotate(std::vector<Coord>& lst) {
-    Coord head = lst[0];
-    for (int i = 1; i < lst.size(); i++) {
-        int delta_x = lst[i].x - head.x;
-        int delta_y = lst[i].y - head.y;
+void Figure::rotate() {
+    Coord head = body[0];
+    for (int i = 1; i < body.size(); i++) {
+        int delta_x = body[i].x - head.x;
+        int delta_y = body[i].y - head.y;
         delta_y *= -1;
-        lst[i] = {head.x + delta_y, head.y + delta_x};
+        body[i] = {head.x + delta_y, head.y + delta_x};
     }
 }
 
-void Figure::shift_to(std::vector<Coord>& lst, const Coord& destination) {
-    int delta_x = destination.x - lst[0].x;
-    int delta_y = destination.y - lst[0].y;
-    for (Coord& coord : lst) {
+void Figure::shift_to(const Coord& destination) {
+    int delta_x = destination.x - body[0].x;
+    int delta_y = destination.y - body[0].y;
+    for (Coord& coord : body) {
         coord.x += delta_x;
         coord.y += delta_y;
     }
 }
 
-void Figure::reflect(std::vector<Coord>& lst) {
-    Coord head = lst[0];
-    for (Coord& coord : lst) {
-        coord.x += 2 * (lst[0].x - coord.x);
+void Figure::reflect() {
+    Coord head = body[0];
+    for (Coord& coord : body) {
+        coord.x += 2 * (body[0].x - coord.x);
     }
 }
 
@@ -184,21 +194,24 @@ const std::vector<Coord>& Figure::get_coords() const {
     return body;
 }
 
-bool Figure::operator==(const Figure& other) const {
+bool Figure::operator==(Figure other) const {
     if (body.size() != other.body.size())
         return false;
 
     std::vector<Coord> first = body;
-    std::vector<Coord> second = other.body;
     std::sort(first.begin(), first.end());
 
     for (int turn = 0; turn < 8; turn++) {
         if (turn == 4)
-            reflect(second);
-        std::sort(second.begin(), second.end());
-        shift_to(second, first[0]);
-        if (first == second) return true;
-        rotate(second);
+            other.reflect();
+        std::sort(other.body.begin(), other.body.end());
+        other.shift_to(first[0]);
+        if (first == other.body) return true;
+        other.rotate();
     }
     return false;
 }
+
+//Figure::operator std::vector<Coord> () {
+//    return body;
+//}

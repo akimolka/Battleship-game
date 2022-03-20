@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/apple/Desktop/MIPT/TP/Project/Battleship
+CMAKE_SOURCE_DIR = /Users/apple/Desktop/MIPT/TP/TP_project/Battleship
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/Battleship.dir/clean
 CMakeFiles/Entities.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target Entities"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target Entities"
 .PHONY : CMakeFiles/Entities.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Entities.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Entities.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Entities.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/Entities.dir/clean:
 CMakeFiles/Battleship.dir/all: CMakeFiles/Entities.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Battleship"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Battleship"
 .PHONY : CMakeFiles/Battleship.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Battleship.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Battleship.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Battleship.dir/rule
 
 # Convenience name for target.

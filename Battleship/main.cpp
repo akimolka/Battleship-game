@@ -26,6 +26,8 @@ using std::cout;
 int main() {
     ShipSet* ships = new StandardShips();
     Game g(ships);
-    Board* board = g.fill_board();
+    //Board* board = g.fill_board();
+    //g.add_board(board);
+    g.play(Mode::AGAINST_DUMMY);
     return 0;
 }

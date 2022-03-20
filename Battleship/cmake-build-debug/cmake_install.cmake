@@ -1,4 +1,4 @@
-# Install script for directory: /Users/apple/Desktop/MIPT/TP/Project/Battleship
+# Install script for directory: /Users/apple/Desktop/MIPT/TP/TP_project/Battleship
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

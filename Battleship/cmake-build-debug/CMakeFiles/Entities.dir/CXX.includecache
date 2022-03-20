@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp
 BattleshipEntities.h
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
 utility
 -
 vector
@@ -18,5 +18,7 @@ vector
 string
 -
 algorithm
+-
+iostream
 -
 

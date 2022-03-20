@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
 utility
 -
 vector
@@ -15,28 +15,40 @@ string
 -
 algorithm
 -
+iostream
+-
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Input.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp
 sstream
 -
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Logic.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp
 BattleshipEntities.h
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
 Output.cpp
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Output.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp
 Input.cpp
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Input.cpp
-
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Output.cpp
-iostream
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp
+ctime
+-
+cstdlib
+-
+queue
+-
+utility
 -
 
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/main.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp
 iostream
 -
 BattleshipEntities.h
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
+
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/main.cpp
+iostream
+-
+BattleshipEntities.h
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h
 Logic.cpp
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/Logic.cpp
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp
 

@@ -1,4 +1,4 @@
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles/Entities.dir
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles/Battleship.dir
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles/Entities.dir
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles/Battleship.dir

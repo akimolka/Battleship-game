@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/apple/Desktop/MIPT/TP/Project/Battleship/BattleshipEntities.cpp" "/Users/apple/Desktop/MIPT/TP/Project/Battleship/cmake-build-debug/CMakeFiles/Entities.dir/BattleshipEntities.cpp.o"
+  "/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp" "/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles/Entities.dir/BattleshipEntities.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
