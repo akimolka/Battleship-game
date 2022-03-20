@@ -79,18 +79,122 @@ CMakeFiles/Battleship.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/main.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/main.cpp -o CMakeFiles/Battleship.dir/main.cpp.s
 
+CMakeFiles/Battleship.dir/Entities.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/Entities.cpp.o: ../Entities.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Battleship.dir/Entities.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/Entities.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp
+
+CMakeFiles/Battleship.dir/Entities.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/Entities.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp > CMakeFiles/Battleship.dir/Entities.cpp.i
+
+CMakeFiles/Battleship.dir/Entities.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/Entities.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp -o CMakeFiles/Battleship.dir/Entities.cpp.s
+
+CMakeFiles/Battleship.dir/BoardGenerators.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/BoardGenerators.cpp.o: ../BoardGenerators.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Battleship.dir/BoardGenerators.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/BoardGenerators.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BoardGenerators.cpp
+
+CMakeFiles/Battleship.dir/BoardGenerators.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/BoardGenerators.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BoardGenerators.cpp > CMakeFiles/Battleship.dir/BoardGenerators.cpp.i
+
+CMakeFiles/Battleship.dir/BoardGenerators.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/BoardGenerators.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BoardGenerators.cpp -o CMakeFiles/Battleship.dir/BoardGenerators.cpp.s
+
+CMakeFiles/Battleship.dir/Input.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/Input.cpp.o: ../Input.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Battleship.dir/Input.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/Input.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp
+
+CMakeFiles/Battleship.dir/Input.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/Input.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp > CMakeFiles/Battleship.dir/Input.cpp.i
+
+CMakeFiles/Battleship.dir/Input.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/Input.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp -o CMakeFiles/Battleship.dir/Input.cpp.s
+
+CMakeFiles/Battleship.dir/Output.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/Output.cpp.o: ../Output.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Battleship.dir/Output.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/Output.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp
+
+CMakeFiles/Battleship.dir/Output.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/Output.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp > CMakeFiles/Battleship.dir/Output.cpp.i
+
+CMakeFiles/Battleship.dir/Output.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/Output.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp -o CMakeFiles/Battleship.dir/Output.cpp.s
+
+CMakeFiles/Battleship.dir/Logic.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/Logic.cpp.o: ../Logic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Battleship.dir/Logic.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/Logic.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp
+
+CMakeFiles/Battleship.dir/Logic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/Logic.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp > CMakeFiles/Battleship.dir/Logic.cpp.i
+
+CMakeFiles/Battleship.dir/Logic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/Logic.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp -o CMakeFiles/Battleship.dir/Logic.cpp.s
+
+CMakeFiles/Battleship.dir/Players.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/Players.cpp.o: ../Players.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Battleship.dir/Players.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/Players.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Players.cpp
+
+CMakeFiles/Battleship.dir/Players.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/Players.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Players.cpp > CMakeFiles/Battleship.dir/Players.cpp.i
+
+CMakeFiles/Battleship.dir/Players.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/Players.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Players.cpp -o CMakeFiles/Battleship.dir/Players.cpp.s
+
+CMakeFiles/Battleship.dir/ShipSets.cpp.o: CMakeFiles/Battleship.dir/flags.make
+CMakeFiles/Battleship.dir/ShipSets.cpp.o: ../ShipSets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Battleship.dir/ShipSets.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Battleship.dir/ShipSets.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/ShipSets.cpp
+
+CMakeFiles/Battleship.dir/ShipSets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Battleship.dir/ShipSets.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/ShipSets.cpp > CMakeFiles/Battleship.dir/ShipSets.cpp.i
+
+CMakeFiles/Battleship.dir/ShipSets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Battleship.dir/ShipSets.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/ShipSets.cpp -o CMakeFiles/Battleship.dir/ShipSets.cpp.s
+
 # Object files for target Battleship
 Battleship_OBJECTS = \
-"CMakeFiles/Battleship.dir/main.cpp.o"
+"CMakeFiles/Battleship.dir/main.cpp.o" \
+"CMakeFiles/Battleship.dir/Entities.cpp.o" \
+"CMakeFiles/Battleship.dir/BoardGenerators.cpp.o" \
+"CMakeFiles/Battleship.dir/Input.cpp.o" \
+"CMakeFiles/Battleship.dir/Output.cpp.o" \
+"CMakeFiles/Battleship.dir/Logic.cpp.o" \
+"CMakeFiles/Battleship.dir/Players.cpp.o" \
+"CMakeFiles/Battleship.dir/ShipSets.cpp.o"
 
 # External object files for target Battleship
 Battleship_EXTERNAL_OBJECTS =
 
 Battleship: CMakeFiles/Battleship.dir/main.cpp.o
+Battleship: CMakeFiles/Battleship.dir/Entities.cpp.o
+Battleship: CMakeFiles/Battleship.dir/BoardGenerators.cpp.o
+Battleship: CMakeFiles/Battleship.dir/Input.cpp.o
+Battleship: CMakeFiles/Battleship.dir/Output.cpp.o
+Battleship: CMakeFiles/Battleship.dir/Logic.cpp.o
+Battleship: CMakeFiles/Battleship.dir/Players.cpp.o
+Battleship: CMakeFiles/Battleship.dir/ShipSets.cpp.o
 Battleship: CMakeFiles/Battleship.dir/build.make
-Battleship: libEntities.dylib
 Battleship: CMakeFiles/Battleship.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Battleship"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Battleship"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Battleship.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

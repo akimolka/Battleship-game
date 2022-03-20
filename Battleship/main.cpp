@@ -1,33 +1,32 @@
 #include <iostream>
-#include "BattleshipEntities.h"
-//#include "Players.cpp"
-#include "Logic.cpp"
-
-#define RESET   "\033[0m"
-#define BLACK   "\033[30m"      /* Black */
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
-#define WHITE   "\033[37m"      /* White */
-#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
-#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
-#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
-#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
-#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
-#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
-#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
-#define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
-
-using std::cout;
+#include "Logic.h"
+#include "Entities.h"
+#include "ShipSets.h"
+#include "BoardGenerators.h"
 
 int main() {
+    // 1 player against AI with manually created board
+//    ShipSet* ships = new StandardShips();
+//    Game g(ships);
+//    Board* board = g.fill_board();
+//    g.add_board(board);
+//    g.play(Mode::AGAINST_DUMMY);
+
+    // 2 players with generated boards:
+//    BoardGenerator* gen = new RandomBoardGenerator();
+//    ShipSet* ships = new StandardShips();
+//    Board* board_a = gen->get(ships);
+//    Board* board_b = gen->get(ships);
+//    Game g(ships);
+//    g.add_boards(board_a, board_b);
+//    g.play(Mode::TWO_PLAYERS);
+
+    // 1 player against AI with generated board
+    BoardGenerator* gen = new RandomBoardGenerator();
     ShipSet* ships = new StandardShips();
+    Board* board_a = gen->get(ships);
     Game g(ships);
-    //Board* board = g.fill_board();
-    //g.add_board(board);
+    g.add_board(board_a);
     g.play(Mode::AGAINST_DUMMY);
     return 0;
 }

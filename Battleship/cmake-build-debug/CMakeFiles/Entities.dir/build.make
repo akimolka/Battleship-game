@@ -66,27 +66,27 @@ include CMakeFiles/Entities.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Entities.dir/flags.make
 
-CMakeFiles/Entities.dir/BattleshipEntities.cpp.o: CMakeFiles/Entities.dir/flags.make
-CMakeFiles/Entities.dir/BattleshipEntities.cpp.o: ../BattleshipEntities.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Entities.dir/BattleshipEntities.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Entities.dir/BattleshipEntities.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp
+CMakeFiles/Entities.dir/Entities.cpp.o: CMakeFiles/Entities.dir/flags.make
+CMakeFiles/Entities.dir/Entities.cpp.o: ../Entities.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Entities.dir/Entities.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Entities.dir/Entities.cpp.o -c /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp
 
-CMakeFiles/Entities.dir/BattleshipEntities.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Entities.dir/BattleshipEntities.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp > CMakeFiles/Entities.dir/BattleshipEntities.cpp.i
+CMakeFiles/Entities.dir/Entities.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Entities.dir/Entities.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp > CMakeFiles/Entities.dir/Entities.cpp.i
 
-CMakeFiles/Entities.dir/BattleshipEntities.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Entities.dir/BattleshipEntities.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp -o CMakeFiles/Entities.dir/BattleshipEntities.cpp.s
+CMakeFiles/Entities.dir/Entities.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Entities.dir/Entities.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp -o CMakeFiles/Entities.dir/Entities.cpp.s
 
 # Object files for target Entities
 Entities_OBJECTS = \
-"CMakeFiles/Entities.dir/BattleshipEntities.cpp.o"
+"CMakeFiles/Entities.dir/Entities.cpp.o"
 
 # External object files for target Entities
 Entities_EXTERNAL_OBJECTS =
 
-libEntities.dylib: CMakeFiles/Entities.dir/BattleshipEntities.cpp.o
+libEntities.dylib: CMakeFiles/Entities.dir/Entities.cpp.o
 libEntities.dylib: CMakeFiles/Entities.dir/build.make
 libEntities.dylib: CMakeFiles/Entities.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libEntities.dylib"

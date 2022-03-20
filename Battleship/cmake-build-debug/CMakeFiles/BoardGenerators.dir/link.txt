@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libBoardGenerators.dylib -install_name @rpath/libBoardGenerators.dylib CMakeFiles/BoardGenerators.dir/BoardGenerators.cpp.o 

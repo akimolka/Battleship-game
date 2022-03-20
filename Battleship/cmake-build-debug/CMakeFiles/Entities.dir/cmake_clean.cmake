@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Entities.dir/BattleshipEntities.cpp.o"
+  "CMakeFiles/Entities.dir/Entities.cpp.o"
   "libEntities.dylib"
   "libEntities.pdb"
 )

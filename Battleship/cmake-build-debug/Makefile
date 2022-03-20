@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Entities
-
-# Build rule for target.
-Entities: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Entities
-.PHONY : Entities
-
-# fast build rule for target.
-Entities/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/build
-.PHONY : Entities/fast
-
-#=============================================================================
 # Target rules for targets named Battleship
 
 # Build rule for target.
@@ -142,29 +129,173 @@ Battleship/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/build
 .PHONY : Battleship/fast
 
-BattleshipEntities.o: BattleshipEntities.cpp.o
-.PHONY : BattleshipEntities.o
+BoardGenerators.o: BoardGenerators.cpp.o
+.PHONY : BoardGenerators.o
 
 # target to build an object file
-BattleshipEntities.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/BattleshipEntities.cpp.o
-.PHONY : BattleshipEntities.cpp.o
+BoardGenerators.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/BoardGenerators.cpp.o
+.PHONY : BoardGenerators.cpp.o
 
-BattleshipEntities.i: BattleshipEntities.cpp.i
-.PHONY : BattleshipEntities.i
+BoardGenerators.i: BoardGenerators.cpp.i
+.PHONY : BoardGenerators.i
 
 # target to preprocess a source file
-BattleshipEntities.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/BattleshipEntities.cpp.i
-.PHONY : BattleshipEntities.cpp.i
+BoardGenerators.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/BoardGenerators.cpp.i
+.PHONY : BoardGenerators.cpp.i
 
-BattleshipEntities.s: BattleshipEntities.cpp.s
-.PHONY : BattleshipEntities.s
+BoardGenerators.s: BoardGenerators.cpp.s
+.PHONY : BoardGenerators.s
 
 # target to generate assembly for a file
-BattleshipEntities.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Entities.dir/build.make CMakeFiles/Entities.dir/BattleshipEntities.cpp.s
-.PHONY : BattleshipEntities.cpp.s
+BoardGenerators.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/BoardGenerators.cpp.s
+.PHONY : BoardGenerators.cpp.s
+
+Entities.o: Entities.cpp.o
+.PHONY : Entities.o
+
+# target to build an object file
+Entities.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Entities.cpp.o
+.PHONY : Entities.cpp.o
+
+Entities.i: Entities.cpp.i
+.PHONY : Entities.i
+
+# target to preprocess a source file
+Entities.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Entities.cpp.i
+.PHONY : Entities.cpp.i
+
+Entities.s: Entities.cpp.s
+.PHONY : Entities.s
+
+# target to generate assembly for a file
+Entities.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Entities.cpp.s
+.PHONY : Entities.cpp.s
+
+Input.o: Input.cpp.o
+.PHONY : Input.o
+
+# target to build an object file
+Input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Input.cpp.o
+.PHONY : Input.cpp.o
+
+Input.i: Input.cpp.i
+.PHONY : Input.i
+
+# target to preprocess a source file
+Input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Input.cpp.i
+.PHONY : Input.cpp.i
+
+Input.s: Input.cpp.s
+.PHONY : Input.s
+
+# target to generate assembly for a file
+Input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Input.cpp.s
+.PHONY : Input.cpp.s
+
+Logic.o: Logic.cpp.o
+.PHONY : Logic.o
+
+# target to build an object file
+Logic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Logic.cpp.o
+.PHONY : Logic.cpp.o
+
+Logic.i: Logic.cpp.i
+.PHONY : Logic.i
+
+# target to preprocess a source file
+Logic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Logic.cpp.i
+.PHONY : Logic.cpp.i
+
+Logic.s: Logic.cpp.s
+.PHONY : Logic.s
+
+# target to generate assembly for a file
+Logic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Logic.cpp.s
+.PHONY : Logic.cpp.s
+
+Output.o: Output.cpp.o
+.PHONY : Output.o
+
+# target to build an object file
+Output.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Output.cpp.o
+.PHONY : Output.cpp.o
+
+Output.i: Output.cpp.i
+.PHONY : Output.i
+
+# target to preprocess a source file
+Output.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Output.cpp.i
+.PHONY : Output.cpp.i
+
+Output.s: Output.cpp.s
+.PHONY : Output.s
+
+# target to generate assembly for a file
+Output.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Output.cpp.s
+.PHONY : Output.cpp.s
+
+Players.o: Players.cpp.o
+.PHONY : Players.o
+
+# target to build an object file
+Players.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Players.cpp.o
+.PHONY : Players.cpp.o
+
+Players.i: Players.cpp.i
+.PHONY : Players.i
+
+# target to preprocess a source file
+Players.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Players.cpp.i
+.PHONY : Players.cpp.i
+
+Players.s: Players.cpp.s
+.PHONY : Players.s
+
+# target to generate assembly for a file
+Players.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/Players.cpp.s
+.PHONY : Players.cpp.s
+
+ShipSets.o: ShipSets.cpp.o
+.PHONY : ShipSets.o
+
+# target to build an object file
+ShipSets.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/ShipSets.cpp.o
+.PHONY : ShipSets.cpp.o
+
+ShipSets.i: ShipSets.cpp.i
+.PHONY : ShipSets.i
+
+# target to preprocess a source file
+ShipSets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/ShipSets.cpp.i
+.PHONY : ShipSets.cpp.i
+
+ShipSets.s: ShipSets.cpp.s
+.PHONY : ShipSets.s
+
+# target to generate assembly for a file
+ShipSets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Battleship.dir/build.make CMakeFiles/Battleship.dir/ShipSets.cpp.s
+.PHONY : ShipSets.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -199,10 +330,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Battleship"
-	@echo "... Entities"
-	@echo "... BattleshipEntities.o"
-	@echo "... BattleshipEntities.i"
-	@echo "... BattleshipEntities.s"
+	@echo "... BoardGenerators.o"
+	@echo "... BoardGenerators.i"
+	@echo "... BoardGenerators.s"
+	@echo "... Entities.o"
+	@echo "... Entities.i"
+	@echo "... Entities.s"
+	@echo "... Input.o"
+	@echo "... Input.i"
+	@echo "... Input.s"
+	@echo "... Logic.o"
+	@echo "... Logic.i"
+	@echo "... Logic.s"
+	@echo "... Output.o"
+	@echo "... Output.i"
+	@echo "... Output.s"
+	@echo "... Players.o"
+	@echo "... Players.i"
+	@echo "... Players.s"
+	@echo "... ShipSets.o"
+	@echo "... ShipSets.i"
+	@echo "... ShipSets.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

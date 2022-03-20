@@ -17,48 +17,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Entities">
-				<Option output="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/libEntities.dylib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 Entities"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Entities/fast">
-				<Option output="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/libEntities.dylib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 Entities/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/cmake-build-debug"/>
 				<Option type="4"/>
@@ -122,11 +80,47 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.cpp">
-			<Option target="Entities"/>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BoardGenerators.cpp">
+			<Option target="Battleship"/>
 		</Unit>
-		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BattleshipEntities.h">
-			<Option target="Entities"/>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/BoardGenerators.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Entities.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Input.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Logic.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Output.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Players.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/Players.h">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/ShipSets.cpp">
+			<Option target="Battleship"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/ShipSets.h">
+			<Option target="Battleship"/>
 		</Unit>
 		<Unit filename="/Users/apple/Desktop/MIPT/TP/TP_project/Battleship/main.cpp">
 			<Option target="Battleship"/>

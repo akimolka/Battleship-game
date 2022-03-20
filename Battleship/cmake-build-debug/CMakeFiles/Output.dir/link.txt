@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libOutput.dylib -install_name @rpath/libOutput.dylib CMakeFiles/Output.dir/Output.cpp.o 

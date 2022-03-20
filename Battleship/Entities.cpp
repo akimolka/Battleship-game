@@ -1,8 +1,8 @@
-#include "BattleshipEntities.h"
+#include "Entities.h"
 
 Coord::Coord(const std::string& str) {
     if ('A' <= str[0] && str[0] <= 'J') // todo deal with invalid input
-        x = str[0] - 'A';
+        x = str[0] - 'A';               // todo depend on size, not number 10
     else
         x = str[0] - 'a';
 
@@ -29,6 +29,7 @@ std::ostream& operator<<(std::ostream& out, const Coord& coord) {
     out << char('A' + coord.x) << coord.y + 1;
     return out;
 }
+
 
 
 Ship::Ship(std::vector<Coord> coords)
@@ -66,7 +67,6 @@ HitResult Ship::hit(const Coord& coord) {
 const std::vector<Coord>& Ship::get_coords() const {
     return body;
 }
-
 
 
 
@@ -211,7 +211,3 @@ bool Figure::operator==(Figure other) const {
     }
     return false;
 }
-
-//Figure::operator std::vector<Coord> () {
-//    return body;
-//}

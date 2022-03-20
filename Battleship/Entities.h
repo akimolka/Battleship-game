@@ -1,5 +1,5 @@
-#ifndef BATTLESHIP_BATTLESHIPENTITIES_H
-#define BATTLESHIP_BATTLESHIPENTITIES_H
+#ifndef BATTLESHIP_ENTITIES_H
+#define BATTLESHIP_ENTITIES_H
 
 #include <utility>
 #include <vector>
@@ -19,7 +19,11 @@ struct Coord {
 
 std::ostream& operator<<(std::ostream& out, const Coord& coord);
 
+
+
 enum class HitResult { NONE, MISS, HIT, KILL };
+
+
 
 class Ship {
     std::vector<Coord> body;
@@ -30,6 +34,8 @@ public:
     HitResult hit(const Coord& coord);
     const std::vector<Coord>& get_coords() const;
 };
+
+
 
 class Board {
     std::vector<Ship> ships;
@@ -52,6 +58,9 @@ public:
     const std::vector<std::vector<int>>& get_ships() const;
 };
 
+
+
+
 class Figure {
     std::vector<Coord> body;
 
@@ -63,8 +72,7 @@ public:
     Figure(const Coord& corner1, const Coord& corner2);
     const std::vector<Coord>& get_coords() const;
     bool operator==(Figure other) const;
-    //operator std::vector<Coord>();
 };
 
-#endif //BATTLESHIP_BATTLESHIPENTITIES_H
+#endif //BATTLESHIP_ENTITIES_H
 
