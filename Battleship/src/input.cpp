@@ -12,7 +12,9 @@ bool ConsoleInput::check_input(const std::string& word) {
 
 std::vector<Coord> ConsoleInput::read() {
     std::string line, word;
-    std::getline(std::cin, line);
+    do {
+        std::getline(std::cin, line);
+    } while (line == "\n" || line.empty());
     std::stringstream ss;
     ss << line;
 
