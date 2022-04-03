@@ -1,9 +1,9 @@
-#ifndef BATTLESHIP_PLAYERS_H
-#define BATTLESHIP_PLAYERS_H
+#ifndef BATTLESHIP_PLAYERS_HPP
+#define BATTLESHIP_PLAYERS_HPP
 
-#include "Entities.h"
-#include "Output.h"
-#include "Input.h"
+#include "entities.hpp"
+#include "output.hpp"
+#include "input.hpp"
 #include <ctime>
 #include <cstdlib>
 #include <queue>
@@ -67,4 +67,4 @@ public:
     void report_losses(const Coord& shot, HitResult result, const Board* board) override;
 };
 
-#endif //BATTLESHIP_PLAYERS_H
+#endif //BATTLESHIP_PLAYERS_HPP

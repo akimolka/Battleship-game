@@ -1,4 +1,4 @@
-#include "BoardGenerators.h"
+#include "board_generators.hpp"
 
 bool RandomBoardGenerator::check_figure_coords(const Figure& figure) {
     for (const Coord& coord : figure.get_coords())

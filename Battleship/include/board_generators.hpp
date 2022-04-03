@@ -1,8 +1,8 @@
-#ifndef BATTLESHIP_BOARDGENERATORS_H
-#define BATTLESHIP_BOARDGENERATORS_H
+#ifndef BATTLESHIP_BOARD_GENERATORS_HPP
+#define BATTLESHIP_BOARD_GENERATORS_HPP
 
-#include "Entities.h"
-#include "ShipSets.h"
+#include "entities.hpp"
+#include "ship_sets.hpp"
 #include <ctime>
 #include <cstdlib>
 
@@ -26,4 +26,4 @@ public:
     Board* get(const ShipSet* shipset) const override;
 };
 
-#endif //BATTLESHIP_BOARDGENERATORS_H
+#endif //BATTLESHIP_BOARD_GENERATORS_HPP

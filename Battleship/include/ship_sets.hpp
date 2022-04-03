@@ -1,10 +1,10 @@
-#ifndef BATTLESHIP_SHIPSETS_H
-#define BATTLESHIP_SHIPSETS_H
+#ifndef BATTLESHIP_SHIP_SETS_HPP
+#define BATTLESHIP_SHIP_SETS_HPP
 
 #include <vector>
 #include <ctime>
 #include <cstdlib>
-#include "Entities.h"
+#include "entities.hpp"
 
 class ShipSet {
 public:
@@ -22,4 +22,4 @@ public:
     std::vector<const Figure*> get() const override;
 };
 
-#endif //BATTLESHIP_SHIPSETS_H
+#endif //BATTLESHIP_SHIP_SETS_HPP

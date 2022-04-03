@@ -1,12 +1,12 @@
-#ifndef BATTLESHIP_LOGIC_H
-#define BATTLESHIP_LOGIC_H
+#ifndef BATTLESHIP_LOGIC_HPP
+#define BATTLESHIP_LOGIC_HPP
 
-#include "Entities.h"
-#include "Output.h"
-#include "Input.h"
-#include "Players.h"
-#include "BoardGenerators.h"
-#include "ShipSets.h"
+#include "entities.hpp"
+#include "output.hpp"
+#include "input.hpp"
+#include "players.hpp"
+#include "board_generators.hpp"
+#include "ship_sets.hpp"
 #include <queue>
 
 enum Mode { TWO_PLAYERS, AGAINST_RANDOM, AGAINST_DUMMY, AGAINST_PROFI };
@@ -35,4 +35,4 @@ public:
 };
 
 
-#endif //BATTLESHIP_LOGIC_H
+#endif //BATTLESHIP_LOGIC_HPP

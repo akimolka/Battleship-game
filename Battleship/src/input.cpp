@@ -1,4 +1,4 @@
-#include "Input.h"
+#include "input.hpp"
 
 bool ConsoleInput::check_input(const std::string& word) {
     if (word.size() < 2 || word.size() > 3)

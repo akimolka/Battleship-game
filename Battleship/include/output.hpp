@@ -1,8 +1,8 @@
-#ifndef BATTLESHIP_OUTPUT_H
-#define BATTLESHIP_OUTPUT_H
+#ifndef BATTLESHIP_OUTPUT_HPP
+#define BATTLESHIP_OUTPUT_HPP
 
 #include <iostream>
-#include "Entities.h"
+#include "entities.hpp"
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -54,4 +54,4 @@ public:
     void winning_message(const std::string& name) override;
 };
 
-#endif //BATTLESHIP_OUTPUT_H
+#endif //BATTLESHIP_OUTPUT_HPP

@@ -1,4 +1,4 @@
-#include "Players.h"
+#include "players.hpp"
 
 bool Player::is_valid(const Coord& coord) {
     return coord.x >= 0 && coord.y >= 0 && coord.x < Board::size && coord.y < Board::size;

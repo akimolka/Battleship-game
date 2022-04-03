@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Logic.h"
-#include "Entities.h"
-#include "ShipSets.h"
-#include "BoardGenerators.h"
+#include "logic.hpp"
+#include "entities.hpp"
+#include "ship_sets.hpp"
+#include "board_generators.hpp"
 
 int main() {
     // 1 player against AI with manually created board

@@ -1,4 +1,4 @@
-#include "Entities.h"
+#include "entities.hpp"
 
 Coord::Coord(const std::string& str) {
     if ('A' <= str[0] && str[0] <= 'J') // todo deal with invalid input

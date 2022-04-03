@@ -1,8 +1,8 @@
-#ifndef BATTLESHIP_INPUT_H
-#define BATTLESHIP_INPUT_H
+#ifndef BATTLESHIP_INPUT_HPP
+#define BATTLESHIP_INPUT_HPP
 
 #include <sstream>
-#include "Entities.h"
+#include "entities.hpp"
 
 class Input {
 public:
@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif //BATTLESHIP_INPUT_H
+#endif //BATTLESHIP_INPUT_HPP

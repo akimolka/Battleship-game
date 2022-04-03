@@ -1,4 +1,4 @@
-#include "ShipSets.h"
+#include "ship_sets.hpp"
 
 StandardShips::StandardShips()
 : patrol_boat({0, 0}, {0, 0}), submarine({0, 0}, {0, 1}),

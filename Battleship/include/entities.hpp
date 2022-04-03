@@ -1,5 +1,5 @@
-#ifndef BATTLESHIP_ENTITIES_H
-#define BATTLESHIP_ENTITIES_H
+#ifndef BATTLESHIP_ENTITIES_HPP
+#define BATTLESHIP_ENTITIES_HPP
 
 #include <utility>
 #include <vector>
@@ -74,5 +74,5 @@ public:
     bool operator==(Figure other) const;
 };
 
-#endif //BATTLESHIP_ENTITIES_H
+#endif //BATTLESHIP_ENTITIES_HPP
 

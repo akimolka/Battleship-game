@@ -1,4 +1,4 @@
-#include "Logic.h"
+#include "logic.hpp"
 
 void Game::run() {
     std::vector<Player*> players = {player_a, player_b};

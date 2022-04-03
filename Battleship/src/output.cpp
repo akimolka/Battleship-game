@@ -1,4 +1,4 @@
-#include "Output.h"
+#include "output.hpp"
 
 
 void ConsoleOutput::draw_board_init(const Board* board) {
