@@ -9,6 +9,7 @@ This project implemets the well-known [Battleship game](https://en.wikipedia.org
 - [X] arranging ships on the board
 - [X] generation of grids for lazy ones
 - [X] games vs AI and other human players
+
 **To be implemented:**
 - [ ] extraordinary shipsets and opportunity to choose a shipset for a game
 - [ ] AI player that calculates the possibility of box to be occupied
