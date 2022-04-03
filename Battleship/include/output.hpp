@@ -35,6 +35,7 @@ public:
     virtual void report_success(HitResult result) = 0;
     virtual void report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) = 0;
     virtual void winning_message(const std::string& name) = 0;
+    virtual ~Output() = default;
 };
 
 

@@ -7,6 +7,7 @@
 class Input {
 public:
     virtual std::vector<Coord> read() = 0;
+    virtual ~Input() = default;
 };
 
 class ConsoleInput: public Input {

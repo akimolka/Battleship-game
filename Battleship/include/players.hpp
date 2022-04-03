@@ -25,6 +25,7 @@ public:
     virtual Coord get_move() = 0;
     virtual void report_success(HitResult result) = 0;
     virtual void report_losses(const Coord& shot, HitResult result, const Board* board) = 0;
+    virtual ~Player() = default;
 };
 
 //const std::vector<const std::pair<int, int>>Player::neighbour_moves = {{-1, -1}, {-1, 0}, {-1, 1},

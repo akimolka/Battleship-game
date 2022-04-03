@@ -11,6 +11,7 @@ protected:
     static const int size = 10;
 public:
     virtual Board* get(const ShipSet* shipset) const = 0;
+    virtual ~BoardGenerator() = default;
 };
 
 class RandomBoardGenerator: public BoardGenerator {

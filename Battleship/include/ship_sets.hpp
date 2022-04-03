@@ -9,6 +9,7 @@
 class ShipSet {
 public:
     virtual std::vector<const Figure*> get() const = 0;
+    virtual ~ShipSet() = default;
 };
 
 class StandardShips: public ShipSet {
