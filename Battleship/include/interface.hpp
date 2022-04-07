@@ -1,8 +1,9 @@
-#ifndef BATTLESHIP_OUTPUT_HPP
-#define BATTLESHIP_OUTPUT_HPP
+#ifndef BATTLESHIP_INTERFACE_HPP
+#define BATTLESHIP_INTERFACE_HPP
 
 #include <iostream>
 #include "entities.hpp"
+#include "sstream"
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -22,7 +23,23 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
+using std::cin;
 using std::cout;
+
+class Input {
+public:
+    virtual std::vector<Coord> read() = 0;
+    virtual ~Input() = default;
+};
+
+class ConsoleInput: public Input {
+    static bool check_input(const std::string& word);
+
+public:
+    std::vector<Coord> read() override;
+};
+
+
 
 class Output {
 protected:
@@ -55,4 +72,4 @@ public:
     void winning_message(const std::string& name) override;
 };
 
-#endif //BATTLESHIP_OUTPUT_HPP
+#endif //BATTLESHIP_INTERFACE_HPP

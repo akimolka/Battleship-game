@@ -2,8 +2,7 @@
 #define BATTLESHIP_LOGIC_HPP
 
 #include "entities.hpp"
-#include "output.hpp"
-#include "input.hpp"
+#include "interface.hpp"
 #include "players.hpp"
 #include "board_generators.hpp"
 #include "ship_sets.hpp"

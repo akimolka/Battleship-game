@@ -7,8 +7,7 @@ add_executable(Battleship
         main.cpp
         src/entities.cpp
         src/board_generators.cpp
-        src/input.cpp
-        src/output.cpp
+        src/interface.cpp
         src/logic.cpp
         src/players.cpp
         src/ship_sets.cpp)

@@ -2,8 +2,7 @@
 #define BATTLESHIP_PLAYERS_HPP
 
 #include "entities.hpp"
-#include "output.hpp"
-#include "input.hpp"
+#include "interface.hpp"
 #include <ctime>
 #include <cstdlib>
 #include <queue>
