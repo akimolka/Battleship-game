@@ -26,47 +26,80 @@
 using std::cin;
 using std::cout;
 
-class Input {
-public:
-    virtual std::vector<Coord> read() = 0;
-    virtual ~Input() = default;
-};
+//class Input {
+//public:
+//    virtual std::vector<Coord> read() = 0;
+//    virtual ~Input() = default;
+//};
+//
+//class ConsoleInput: public Input {
+//    static bool check_input(const std::string& word);
+//
+//public:
+//    std::vector<Coord> read() override;
+//};
+//
+//
+//
+//class Output {
+//protected:
+//    std::vector<std::string> string_hit_results = {"none", "miss", "hit", "kill"};
+//
+//public:
+//    virtual void board_creation(const Board* board, std::vector<const Figure*> ships) = 0;
+//    virtual void board_creation_finished(const Board* board) = 0;
+//    virtual void move(const std::string& name, const Board* board) = 0;
+//    virtual void report_success(HitResult result) = 0;
+//    virtual void report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) = 0;
+//    virtual void winning_message(const std::string& name) = 0;
+//    virtual ~Output() = default;
+//};
+//
+//
+//class ConsoleOutput: public Output {
+//private:
+//    void draw_board_init(const Board* board);
+//    void draw_opponent_board(const Board* board);
+//    std::pair<int, int> get_grid_proportions(const std::vector<const Figure*>& ships);
+//    void draw_ships_in_line(int block_size, std::vector<Figure>&& ships);
+//    void draw_ships(const std::vector<const Figure*>& ships);
+//    void draw_players_board(const Board* board);
+//
+//public:
+//    void move(const std::string& name, const Board* board) override;
+//    void board_creation(const Board* board, std::vector<const Figure*> ships) override;
+//    void board_creation_finished(const Board* board) override;
+//    void report_success(HitResult result) override;
+//    void report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) override;
+//    void winning_message(const std::string& name) override;
+//};
 
-class ConsoleInput: public Input {
-    static bool check_input(const std::string& word);
-
-public:
-    std::vector<Coord> read() override;
-};
-
-
-
-class Output {
+class Interface {
 protected:
     std::vector<std::string> string_hit_results = {"none", "miss", "hit", "kill"};
-
 public:
+    virtual std::vector<Coord> read() = 0;
     virtual void board_creation(const Board* board, std::vector<const Figure*> ships) = 0;
     virtual void board_creation_finished(const Board* board) = 0;
     virtual void move(const std::string& name, const Board* board) = 0;
     virtual void report_success(HitResult result) = 0;
     virtual void report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) = 0;
     virtual void winning_message(const std::string& name) = 0;
-    virtual ~Output() = default;
+    virtual ~Interface() = default;
 };
 
-
-class ConsoleOutput: public Output {
+class ConsoleInterface: public Interface {
 private:
+    static bool check_input(const std::string& word);
     void draw_board_init(const Board* board);
     void draw_opponent_board(const Board* board);
-    //void draw_ship(const Figure* ship);
     std::pair<int, int> get_grid_proportions(const std::vector<const Figure*>& ships);
     void draw_ships_in_line(int block_size, std::vector<Figure>&& ships);
     void draw_ships(const std::vector<const Figure*>& ships);
     void draw_players_board(const Board* board);
 
 public:
+    std::vector<Coord> read() override;
     void move(const std::string& name, const Board* board) override;
     void board_creation(const Board* board, std::vector<const Figure*> ships) override;
     void board_creation_finished(const Board* board) override;

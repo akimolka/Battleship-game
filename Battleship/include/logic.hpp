@@ -11,8 +11,7 @@
 enum Mode { TWO_PLAYERS, AGAINST_RANDOM, AGAINST_DUMMY, AGAINST_PROFI };
 
 class Game {
-    Input* input = new ConsoleInput();
-    Output* output = new ConsoleOutput();
+    Interface* interface = new ConsoleInterface();
     BoardGenerator* board_gen = new RandomBoardGenerator();
     const ShipSet* shipset;
     Board* board_a;

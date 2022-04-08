@@ -30,13 +30,13 @@ void Player::mark_uninteresting(const Coord& coord, std::vector<std::vector<bool
 Player::Player(const Board* board): opponent_board(board) {}
 
 
-LivePlayer::LivePlayer(std::string  name, const Board* board, Input* input, Output* output)
-        : Player(board), name(std::move(name)), input(input), output(output) {}
+LivePlayer::LivePlayer(std::string  name, const Board* board, Interface* interface)
+        : Player(board), name(std::move(name)), interface(interface) {}
 
 Coord LivePlayer::get_move() {
-    output->move(name, opponent_board);
+    interface->move(name, opponent_board);
     while (true) {
-        std::vector<Coord> shot = input->read();
+        std::vector<Coord> shot = interface->read();
         if (shot.size() == 1)
             return shot[0];
     }
@@ -44,12 +44,12 @@ Coord LivePlayer::get_move() {
 
 
 void LivePlayer::report_success(HitResult result) {
-    output->report_success(result);
+    interface->report_success(result);
 }
 
 
 void LivePlayer::report_losses(const Coord& shot, HitResult result, const Board* board) {
-    output->report_losses(name, shot, result, board);
+    interface->report_losses(name, shot, result, board);
 }
 
 

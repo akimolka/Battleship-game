@@ -1,6 +1,6 @@
 #include "interface.hpp"
 
-bool ConsoleInput::check_input(const std::string& word) {
+bool ConsoleInterface::check_input(const std::string& word) {
     if (word.size() < 2 || word.size() > 3)
         return false;
     if (!('a' <= word[0] && word[0] <= 'j' || 'A' <= word[0] && word[0] <= 'J'))
@@ -10,7 +10,7 @@ bool ConsoleInput::check_input(const std::string& word) {
 }
 
 
-std::vector<Coord> ConsoleInput::read() {
+std::vector<Coord> ConsoleInterface::read() {
     std::string line, word;
     do {
         std::getline(std::cin, line);
@@ -30,7 +30,7 @@ std::vector<Coord> ConsoleInput::read() {
 }
 
 
-void ConsoleOutput::draw_board_init(const Board* board) {
+void ConsoleInterface::draw_board_init(const Board* board) {
     int n = Board::size;
     const std::vector<std::vector<int>>& ships = board->get_ships();
     cout << "  ";
@@ -47,7 +47,7 @@ void ConsoleOutput::draw_board_init(const Board* board) {
 }
 
 
-void ConsoleOutput::draw_opponent_board(const Board* board) {
+void ConsoleInterface::draw_opponent_board(const Board* board) {
     int n = Board::size;
     const std::vector<std::vector<HitResult>>& scheme = board->get_board();
     cout << "  ";
@@ -75,11 +75,11 @@ void ConsoleOutput::draw_opponent_board(const Board* board) {
 }
 
 
-//void ConsoleOutput::draw_ship(const Figure* ship) {
+//void ConsoleInterface::draw_ship(const Figure* ship) {
 //    cout << ship->get_coords().size() << " ";  //TODO
 //}
 
-std::pair<int, int> ConsoleOutput::get_grid_proportions(const std::vector<const Figure *> &ships) {
+std::pair<int, int> ConsoleInterface::get_grid_proportions(const std::vector<const Figure *> &ships) {
     std::pair<int, int> span = {-1, -1};
     for (auto& figure: ships) {
         auto curr_span = figure->get_proportions();
@@ -92,7 +92,7 @@ std::pair<int, int> ConsoleOutput::get_grid_proportions(const std::vector<const 
 }
 
 
-void ConsoleOutput::draw_ships_in_line(int block_size, std::vector<Figure>&& ships) {
+void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& ships) {
     int height = 0;
     for (auto& figure : ships) {
         figure.standardize();
@@ -119,11 +119,11 @@ void ConsoleOutput::draw_ships_in_line(int block_size, std::vector<Figure>&& shi
 }
 
 
-void ConsoleOutput::draw_ships(const std::vector<const Figure*>& ships) {
+void ConsoleInterface::draw_ships(const std::vector<const Figure*>& ships) {
     auto grid = get_grid_proportions(ships);
     int n = Board::size;
     int cnt_line = (n + 2) / (grid.second + 1);
-    int block_width = (n + 1) / cnt_line;
+    int block_width = (n + 2) / cnt_line;
     for (int i = 0; i < ships.size(); i += cnt_line) {
         std::vector<Figure> in_one_line;
         for (int j = i; j < std::min((int)ships.size(), i + cnt_line); j++) {
@@ -137,7 +137,7 @@ void ConsoleOutput::draw_ships(const std::vector<const Figure*>& ships) {
 }
 
 
-void ConsoleOutput::draw_players_board(const Board* board) {
+void ConsoleInterface::draw_players_board(const Board* board) {
     int n = Board::size;
     const std::vector<std::vector<HitResult>>& scheme = board->get_board();
     const std::vector<std::vector<int>>& ships = board->get_ships();
@@ -164,13 +164,13 @@ void ConsoleOutput::draw_players_board(const Board* board) {
 }
 
 
-void ConsoleOutput::move(const std::string& name, const Board* board) {
+void ConsoleInterface::move(const std::string& name, const Board* board) {
     cout << YELLOW << "\n\n" << name << "! Enter your shot (eg B7)\n" << RESET;
     draw_opponent_board(board);
 }
 
 
-void ConsoleOutput::board_creation(const Board* board, std::vector<const Figure*> ships) {
+void ConsoleInterface::board_creation(const Board* board, std::vector<const Figure*> ships) {
     cout << YELLOW << "\nPlace the following ships via enumeration of their coordinates (eg B2 B3 B4)\n";
     draw_ships(ships);
     cout << "\n";
@@ -178,13 +178,13 @@ void ConsoleOutput::board_creation(const Board* board, std::vector<const Figure*
 }
 
 
-void ConsoleOutput::board_creation_finished(const Board* board) {
+void ConsoleInterface::board_creation_finished(const Board* board) {
     cout << YELLOW << "\nYou have successfully filled the board. Here it is:\n" << RESET;
     draw_board_init(board);
 }
 
 
-void ConsoleOutput::report_success(HitResult result) {
+void ConsoleInterface::report_success(HitResult result) {
     switch (result) {
         case HitResult::MISS:
             cout << YELLOW << "Oh you've missed :(\n" << RESET;
@@ -198,14 +198,14 @@ void ConsoleOutput::report_success(HitResult result) {
 }
 
 
-void ConsoleOutput::report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) {
+void ConsoleInterface::report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) {
     cout << YELLOW << "\n\n"<< name << "! Your opponent had a " << string_hit_results[int(result)] <<
          " at " << shot << std::endl;
     draw_players_board(board);
 }
 
-void ConsoleOutput::winning_message(const std::string& name) {  // TODO add name if LivePlayer, note AI otherwise
-    cout << "RED" << "\nPlayer " << name << " won!\n";
+void ConsoleInterface::winning_message(const std::string& name) {  // TODO add name if LivePlayer, note AI otherwise
+    cout << RED << "\nPlayer " << name << " won!\n";
 }
 
 
