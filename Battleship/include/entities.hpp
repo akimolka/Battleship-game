@@ -15,6 +15,7 @@ struct Coord {
     Coord();
     bool operator==(const Coord& other) const;
     bool operator<(const Coord& other) const;
+    Coord& operator*=(int coef);
 };
 
 std::ostream& operator<<(std::ostream& out, const Coord& coord);
@@ -72,6 +73,8 @@ public:
     Figure(const Coord& corner1, const Coord& corner2);
     const std::vector<Coord>& get_coords() const;
     bool operator==(Figure other) const;
+    std::pair<int, int> get_proportions() const;
+    void standardize();
 };
 
 #endif //BATTLESHIP_ENTITIES_HPP

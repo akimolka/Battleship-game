@@ -75,8 +75,65 @@ void ConsoleOutput::draw_opponent_board(const Board* board) {
 }
 
 
-void ConsoleOutput::draw_ship(const Figure* ship) {
-    cout << ship->get_coords().size() << " ";  //TODO
+//void ConsoleOutput::draw_ship(const Figure* ship) {
+//    cout << ship->get_coords().size() << " ";  //TODO
+//}
+
+std::pair<int, int> ConsoleOutput::get_grid_proportions(const std::vector<const Figure *> &ships) {
+    std::pair<int, int> span = {-1, -1};
+    for (auto& figure: ships) {
+        auto curr_span = figure->get_proportions();
+        if (curr_span.first > curr_span.second)
+            std::swap(span.first, span.second);
+        span.first = std::max(span.first, curr_span.first);
+        span.second = std::max(span.second, curr_span.second);
+    }
+    return span;
+}
+
+
+void ConsoleOutput::draw_ships_in_line(int block_size, std::vector<Figure>&& ships) {
+    int height = 0;
+    for (auto& figure : ships) {
+        figure.standardize();
+        height = std::max(height, figure.get_proportions().first);
+    }
+
+    std::vector<std::vector<int>> lines(height);
+    for (int i = 0; i < ships.size(); i++) {
+        for (auto& coord : ships[i].get_coords())
+            lines[coord.x].push_back(coord.y + block_size * i);
+    }
+
+    for (auto& line : lines) {
+        std::sort(line.begin(), line.end());
+        for (int j = 0, place = 0; j < line.size(); j++, place++) {
+            while (place < line[j]) {
+                cout << "   ";
+                place++;
+            }
+            cout << YELLOW << "[o]" << RESET;
+        }
+        cout << "\n";
+    }
+}
+
+
+void ConsoleOutput::draw_ships(const std::vector<const Figure*>& ships) {
+    auto grid = get_grid_proportions(ships);
+    int n = Board::size;
+    int cnt_line = (n + 2) / (grid.second + 1);
+    int block_width = (n + 1) / cnt_line;
+    for (int i = 0; i < ships.size(); i += cnt_line) {
+        std::vector<Figure> in_one_line;
+        for (int j = i; j < std::min((int)ships.size(), i + cnt_line); j++) {
+            in_one_line.emplace_back(*ships[j]);
+            auto prop = ships[i]->get_proportions();
+            if (prop.first > prop.second)
+                in_one_line.back().rotate();
+        }
+        draw_ships_in_line(block_width, std::move(in_one_line));
+    }
 }
 
 
@@ -115,9 +172,8 @@ void ConsoleOutput::move(const std::string& name, const Board* board) {
 
 void ConsoleOutput::board_creation(const Board* board, std::vector<const Figure*> ships) {
     cout << YELLOW << "\nPlace the following ships via enumeration of their coordinates (eg B2 B3 B4)\n";
-    for (const Figure* figure : ships)
-        draw_ship(figure);
-    cout << "\n\n";
+    draw_ships(ships);
+    cout << "\n";
     draw_board_init(board);
 }
 
@@ -151,3 +207,5 @@ void ConsoleOutput::report_losses(const std::string& name, const Coord& shot, Hi
 void ConsoleOutput::winning_message(const std::string& name) {  // TODO add name if LivePlayer, note AI otherwise
     cout << "RED" << "\nPlayer " << name << " won!\n";
 }
+
+

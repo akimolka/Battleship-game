@@ -25,6 +25,12 @@ bool Coord::operator<(const Coord &other) const {
     return y < other.y;
 }
 
+Coord& Coord::operator*=(int coef) {
+    x *= coef;
+    y *= coef;
+    return *this;
+}
+
 std::ostream& operator<<(std::ostream& out, const Coord& coord) {
     out << char('A' + coord.x) << coord.y + 1;
     return out;
@@ -210,4 +216,26 @@ bool Figure::operator==(Figure other) const {
         other.rotate();
     }
     return false;
+}
+
+std::pair<int, int> Figure::get_proportions() const {
+    std::pair<int, int> height = {body[0].x, body[0].x};
+    std::pair<int, int> width = {body[0].y, body[0].y};
+    for (auto& coord: body) {
+        height.first = std::min(height.first, coord.x);
+        width.first = std::min(width.first, coord.y);
+        height.second = std::max(height.second, coord.x);
+        width.second = std::max(width.second, coord.y);
+    }
+    return {height.second - height.first + 1, width.second - width.first + 1};
+}
+
+void Figure::standardize() {
+    Coord limits = {INT_MAX, INT_MAX};
+    for (auto& coord : body) {
+        limits.x = std::min(limits.x, coord.x);
+        limits.y = std::min(limits.y, coord.y);
+    }
+    limits *= -1;
+    shift_to(limits);
 }

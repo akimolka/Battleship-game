@@ -60,7 +60,10 @@ class ConsoleOutput: public Output {
 private:
     void draw_board_init(const Board* board);
     void draw_opponent_board(const Board* board);
-    void draw_ship(const Figure* ship);
+    //void draw_ship(const Figure* ship);
+    std::pair<int, int> get_grid_proportions(const std::vector<const Figure*>& ships);
+    void draw_ships_in_line(int block_size, std::vector<Figure>&& ships);
+    void draw_ships(const std::vector<const Figure*>& ships);
     void draw_players_board(const Board* board);
 
 public:
