@@ -1,7 +1,8 @@
 #include "live_player.hpp"
 
-LivePlayer::LivePlayer(std::string  name, const Board* board, Interface* interface)
-        : Player(board), name(std::move(name)), interface(interface) {}
+LivePlayer::LivePlayer(const std::string& name, const Board* board, Interface* interface)
+        : Player(board, name), interface(interface) {}
+
 
 Coord LivePlayer::get_move() {
     interface->move(name, opponent_board);
@@ -18,6 +19,6 @@ void LivePlayer::report_success(HitResult result) {
 }
 
 
-void LivePlayer::report_losses(const Coord& shot, HitResult result, const Board* board) {
-    interface->report_losses(name, shot, result, board);
+void LivePlayer::report_losses(const std::vector<std::pair<Coord, HitResult>>& losses, const Board* board) {
+    interface->report_losses(name, losses, board);
 }

@@ -1,6 +1,8 @@
 #ifndef BATTLESHIP_PLAYER_HPP
 #define BATTLESHIP_PLAYER_HPP
 
+#include <utility>
+
 #include "entities/board.hpp"
 #include "entities/ship.hpp"
 #include "entities/coord.hpp"
@@ -9,6 +11,7 @@
 class Player {
 protected:
     const Board* opponent_board;
+
     inline static const std::vector<const std::pair<int, int>> neighbour_moves = {{-1, -1}, {-1, 0}, {-1, 1},
                                                                                   {0,  -1}, {0, 1},
                                                                                   {1,  -1}, {1, 0}, {1, 1}};
@@ -19,10 +22,11 @@ protected:
     void mark_uninteresting(const Coord& coord, std::vector<std::vector<bool>>& interesting);
 
 public:
-    explicit Player(const Board* board);
+    std::string name;
+    Player(const Board* board, std::string  name);
     virtual Coord get_move() = 0;
     virtual void report_success(HitResult result) = 0;
-    virtual void report_losses(const Coord& shot, HitResult result, const Board* board) = 0;
+    virtual void report_losses(const std::vector<std::pair<Coord, HitResult>>& losses, const Board* board) = 0;
     virtual ~Player() = default;
 };
 

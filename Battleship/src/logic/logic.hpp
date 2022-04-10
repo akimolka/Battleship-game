@@ -20,7 +20,7 @@ class Game {
     Player* player_a;
     Player* player_b;
 
-    void run();
+    void run(Mode mode);
     void set_ai();
 
 public:

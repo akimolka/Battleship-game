@@ -33,7 +33,7 @@ void RectanglePlayer::make_neighbours_potential(const Coord& coord) {
 }
 
 
-RectanglePlayer::RectanglePlayer(const Board* board): Player(board) {
+RectanglePlayer::RectanglePlayer(const Board* board): Player(board, "Adequate AI player") {
     interesting.resize(Board::size, std::vector<bool> (Board::size, true));
 }
 
@@ -77,4 +77,4 @@ void RectanglePlayer::report_success(HitResult result) {
     potential_moves.pop();
 }
 
-void RectanglePlayer::report_losses(const Coord& shot, HitResult result, const Board* board) {}
+void RectanglePlayer::report_losses(const std::vector<std::pair<Coord, HitResult>>& losses, const Board* board) {}

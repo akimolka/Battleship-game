@@ -31,6 +31,13 @@ Mode ConsoleInterface::select_mode() {
     return Mode(mode_int);
 }
 
+std::string ConsoleInterface::enter_name() {
+    cout << YELLOW << "Enter your name\n" << RESET;
+    std::string name;
+    cin >> name;
+    return name;
+}
+
 std::vector<Coord> ConsoleInterface::read() {
     std::string line, word;
     do {
@@ -215,12 +222,24 @@ void ConsoleInterface::report_success(HitResult result) {
 }
 
 
-void ConsoleInterface::report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) {
-    cout << YELLOW << "\n\n"<< name << "! Your opponent had a " << string_hit_results[int(result)] <<
-         " at " << shot << std::endl;
+void ConsoleInterface::report_losses(const std::string& name, const std::vector<std::pair<Coord, HitResult>>& losses,
+                                     const Board* board) {
+    cout << "\n\n";
+    for (auto& loss : losses)
+        cout << YELLOW << name << "! Your opponent had a " << string_hit_results[int(loss.second)] <<
+             " at " << loss.first << std::endl;
     draw_players_board(board);
 }
 
-void ConsoleInterface::winning_message(const std::string& name) {  // TODO add name if LivePlayer, note AI otherwise
+void ConsoleInterface::winning_message(const std::string& name) {
     cout << RED << "\nPlayer " << name << " won!\n";
+}
+
+void ConsoleInterface::change_players() {
+    std::string sign_to_proceed;
+    cout << YELLOW << "Enter anything to proceed\n" << RESET;
+    cin >> sign_to_proceed;
+    system("clear");
+    cout << YELLOW << "Give a turn to the other player. Enter anything to proceed\n" << RESET;
+    cin >> sign_to_proceed;
 }

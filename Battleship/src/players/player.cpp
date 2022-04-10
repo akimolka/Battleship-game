@@ -27,4 +27,4 @@ void Player::mark_uninteresting(const Coord& coord, std::vector<std::vector<bool
 }
 
 
-Player::Player(const Board* board): opponent_board(board) {}
+Player::Player(const Board* board, std::string  name): opponent_board(board), name(std::move(name)) {}

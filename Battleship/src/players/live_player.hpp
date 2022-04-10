@@ -4,13 +4,12 @@
 #include "player.hpp"
 
 class LivePlayer: public Player {
-    const std::string name;
     Interface* interface;
 public:
-    LivePlayer(std::string  name, const Board* board, Interface* interface);
+    LivePlayer(const std::string& name, const Board* board, Interface* interface);
     Coord get_move() override;
     void report_success(HitResult result) override;
-    void report_losses(const Coord& shot, HitResult result, const Board* board) override;
+    void report_losses(const std::vector<std::pair<Coord, HitResult>>& losses, const Board* board) override;
 };
 
 #endif //BATTLESHIP_LIVE_PLAYER_HPP
