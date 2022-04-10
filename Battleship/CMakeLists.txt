@@ -3,13 +3,13 @@ project(Battleship)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Battleship
-        main.cpp
-        src/entities.cpp
-        src/board_generators.cpp
-        src/interface.cpp
-        src/logic.cpp
-        src/players.cpp
-        src/ship_sets.cpp)
+get_filename_component(LIB_PATH "./src" ABSOLUTE)
 
-target_include_directories(Battleship PUBLIC include)
+file(GLOB_RECURSE LIB_CXX_SOURCES ${LIB_PATH}/*.cpp)
+file(GLOB_RECURSE LIB_HEADERS ${LIB_PATH}/*.hpp)
+
+add_library(battleship_lib STATIC ${LIB_CXX_SOURCES} ${LIB_HEADERS})
+target_include_directories(battleship_lib PUBLIC ${LIB_PATH})
+
+add_executable(Battleship main.cpp)
+target_link_libraries(Battleship battleship_lib)

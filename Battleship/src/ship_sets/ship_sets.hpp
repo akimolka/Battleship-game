@@ -2,9 +2,7 @@
 #define BATTLESHIP_SHIP_SETS_HPP
 
 #include <vector>
-#include <ctime>
-#include <cstdlib>
-#include "entities.hpp"
+#include "entities/figure.hpp"
 
 class ShipSet {
 public:

@@ -1,8 +1,8 @@
 #include <iostream>
-#include "logic.hpp"
-#include "entities.hpp"
-#include "ship_sets.hpp"
-#include "board_generators.hpp"
+#include "logic/logic.hpp"
+#include "src/entities/board.hpp"
+#include "ship_sets/ship_sets.hpp"
+#include "board_generators/random_board_generator.hpp"
 
 using std::cout;
 using std::cin;

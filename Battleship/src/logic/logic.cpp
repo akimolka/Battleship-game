@@ -81,7 +81,7 @@ void Game::play(Mode mode) {
                 player_b = new RandomPlayer(board_a);
                 break;
             case Mode::AGAINST_DUMMY:
-                player_b = new DummyRectanglePlayer(board_a);
+                player_b = new RectanglePlayer(board_a);
         }
     }
 

@@ -1,4 +1,4 @@
-#include "interface.hpp"
+#include "console_interface.hpp"
 
 bool ConsoleInterface::check_input(const std::string& word) {
     if (word.size() < 2 || word.size() > 3)
@@ -21,7 +21,7 @@ std::vector<Coord> ConsoleInterface::read() {
     std::vector<Coord> ans;
     while (ss >> word) {
         if (!check_input(word)) {
-            std::cout << "Incorrect input" << std::endl; // TODO move output out of input
+            std::cout << "Incorrect input" << std::endl;
             return {};
         }
         ans.emplace_back(word);
@@ -74,10 +74,6 @@ void ConsoleInterface::draw_opponent_board(const Board* board) {
     }
 }
 
-
-//void ConsoleInterface::draw_ship(const Figure* ship) {
-//    cout << ship->get_coords().size() << " ";  //TODO
-//}
 
 std::pair<int, int> ConsoleInterface::get_grid_proportions(const std::vector<const Figure *> &ships) {
     std::pair<int, int> span = {-1, -1};
@@ -207,5 +203,3 @@ void ConsoleInterface::report_losses(const std::string& name, const Coord& shot,
 void ConsoleInterface::winning_message(const std::string& name) {  // TODO add name if LivePlayer, note AI otherwise
     cout << RED << "\nPlayer " << name << " won!\n";
 }
-
-

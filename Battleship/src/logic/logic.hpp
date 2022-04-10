@@ -1,11 +1,13 @@
 #ifndef BATTLESHIP_LOGIC_HPP
 #define BATTLESHIP_LOGIC_HPP
 
-#include "entities.hpp"
-#include "interface.hpp"
-#include "players.hpp"
-#include "board_generators.hpp"
-#include "ship_sets.hpp"
+#include "entities/board.hpp"
+#include "interface/console_interface.hpp"
+#include "players/live_player.hpp"
+#include "players/rectangle_player.hpp"
+#include "players/random_player.hpp"
+#include "board_generators/random_board_generator.hpp"
+#include "ship_sets/ship_sets.hpp"
 #include <queue>
 
 enum Mode { TWO_PLAYERS, AGAINST_RANDOM, AGAINST_DUMMY, AGAINST_PROFI };

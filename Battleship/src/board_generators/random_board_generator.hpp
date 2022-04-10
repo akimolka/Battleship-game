@@ -1,18 +1,12 @@
-#ifndef BATTLESHIP_BOARD_GENERATORS_HPP
-#define BATTLESHIP_BOARD_GENERATORS_HPP
+#ifndef BATTLESHIP_RANDOM_BOARD_GENERATOR_HPP
+#define BATTLESHIP_RANDOM_BOARD_GENERATOR_HPP
 
-#include "entities.hpp"
-#include "ship_sets.hpp"
+#include "entities/figure.hpp"
+#include "entities/board.hpp"
+#include "ship_sets/ship_sets.hpp"
+#include "board_generator.hpp"
 #include <ctime>
 #include <cstdlib>
-
-class BoardGenerator {
-protected:
-    static const int size = 10;
-public:
-    virtual Board* get(const ShipSet* shipset) const = 0;
-    virtual ~BoardGenerator() = default;
-};
 
 class RandomBoardGenerator: public BoardGenerator {
     static const int max_fill_board_tries = 3;
@@ -27,4 +21,4 @@ public:
     Board* get(const ShipSet* shipset) const override;
 };
 
-#endif //BATTLESHIP_BOARD_GENERATORS_HPP
+#endif //BATTLESHIP_RANDOM_BOARD_GENERATOR_HPP
