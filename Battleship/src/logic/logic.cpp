@@ -22,11 +22,6 @@ void Game::run() {
         interface->winning_message("Player B");
 }
 
-
-Game::Game(const ShipSet* shipset): shipset(shipset), board_a(nullptr), board_b(nullptr),
-    player_a(nullptr), player_b(nullptr) {}
-
-
 Board* Game::fill_board() {
     Board* board = new Board();
     std::vector<const Figure*> ships_to_place = shipset->get();
@@ -46,43 +41,37 @@ Board* Game::fill_board() {
     return board;
 }
 
-
-void Game::add_board(Board* board) {
-    board_a = board;
-};
-
-
-void Game::add_boards(Board* first_board, Board* second_board) {
-    board_a = first_board;
-    board_b = second_board;
+void Game::set_ai() {
+    std::cout << "Enter your name\n";
+    std::string name_a;
+    std::cin >> name_a;
+    board_b = board_gen->get(shipset);
+    player_a = new LivePlayer(name_a, board_b, interface);
+    player_b = player_b = new RectanglePlayer(board_a);
 }
 
-void Game::play(Mode mode) {
-    if (mode == Mode::TWO_PLAYERS && (board_a == nullptr || board_b == nullptr))
-        std::cout << "Initialize two boards first with add_boards method!"; //TODO move all interface to interface
-    else if (mode == Mode::TWO_PLAYERS) {
-        std::cout << "Enter your names\n";
-        std::string name_a, name_b;
-        std::cin >> name_a >> name_b;
-        player_a = new LivePlayer(name_a, board_b, interface);
-        player_b = new LivePlayer(name_b, board_a, interface);
-    }
-    else if (board_a == nullptr) {
-        std::cout << "Initialize your board with add_board method first!";
-    }
-    else {
-        std::cout << "Enter your name\n";
-        std::string name_a;
-        std::cin >> name_a;
-        board_b = board_gen->get(shipset);
-        player_a = new LivePlayer(name_a, board_b, interface);
-        switch (mode) {
-            case Mode::AGAINST_RANDOM:
-                player_b = new RandomPlayer(board_a);
-                break;
-            case Mode::AGAINST_DUMMY:
-                player_b = new RectanglePlayer(board_a);
-        }
+void Game::play() {
+    Mode mode = interface->select_mode();
+
+    switch (mode) {
+        case Mode::AI_MANUALLY:
+            board_a = fill_board();
+            set_ai();
+            break;
+        case Mode::AI_GENERATED:
+            board_a = board_gen->get(shipset);
+            set_ai();
+            break;
+        case Mode::TWO_LIVE:
+            std::cout << "Enter your names\n";
+            std::string name_a, name_b;
+            std::cin >> name_a >> name_b;
+            board_a = fill_board();
+            // flush
+            board_b = fill_board();
+            player_a = new LivePlayer(name_a, board_b, interface);
+            player_b = new LivePlayer(name_b, board_a, interface);
+            break;
     }
 
     run();

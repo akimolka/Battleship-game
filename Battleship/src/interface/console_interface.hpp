@@ -2,9 +2,6 @@
 #define BATTLESHIP_CONSOLE_INTERFACE_HPP
 
 #include "interface.hpp"
-#include "entities/figure.hpp"
-#include "entities/board.hpp"
-#include "entities/ship.hpp"
 #include <iostream>
 #include <sstream>
 
@@ -40,6 +37,7 @@ private:
     void draw_players_board(const Board* board);
 
 public:
+    Mode select_mode() override;
     std::vector<Coord> read() override;
     void move(const std::string& name, const Board* board) override;
     void board_creation(const Board* board, std::vector<const Figure*> ships) override;

@@ -9,6 +9,27 @@ bool ConsoleInterface::check_input(const std::string& word) {
            (word.size() == 3 && word[1] == '1' && word[2] == '0');
 }
 
+Mode ConsoleInterface::select_mode() {
+    cout << YELLOW << "Hello! To play the game please select the mode:\n";
+    cout << "1 - play against AI with a generated board for you\n";
+    cout << "2 - play against AI with a manually created board\n";
+    cout << "3 - play against your friend with manually created boards\n" << RESET;
+    std::string mode_str;
+    int mode_int = 0;
+    while (true){
+        cin >> mode_str;
+        try {
+            mode_int = std::stoi(mode_str);
+        } catch (...) {
+            cout << RED << "Please enter a number\n" << RESET;
+        }
+        if (mode_int < 1 || mode_int > 3)
+            cout << RED << "Incorrect input" << std::endl << RESET;
+        else
+            break;
+    }
+    return Mode(mode_int);
+}
 
 std::vector<Coord> ConsoleInterface::read() {
     std::string line, word;

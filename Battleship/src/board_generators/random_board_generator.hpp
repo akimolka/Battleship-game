@@ -3,7 +3,7 @@
 
 #include "entities/figure.hpp"
 #include "entities/board.hpp"
-#include "ship_sets/ship_sets.hpp"
+#include "modes/ship_sets.hpp"
 #include "board_generator.hpp"
 #include <ctime>
 #include <cstdlib>

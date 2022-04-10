@@ -1,7 +1,7 @@
 #ifndef BATTLESHIP_BOARD_GENERATOR_HPP
 #define BATTLESHIP_BOARD_GENERATOR_HPP
 
-#include "ship_sets/ship_sets.hpp"
+#include "modes/ship_sets.hpp"
 
 class BoardGenerator {
 protected:

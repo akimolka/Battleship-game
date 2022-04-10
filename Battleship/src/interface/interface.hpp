@@ -4,11 +4,13 @@
 #include "entities/figure.hpp"
 #include "entities/board.hpp"
 #include "entities/ship.hpp"
+#include "modes/modes.hpp"
 
 class Interface {
 protected:
     std::vector<std::string> string_hit_results = {"none", "miss", "hit", "kill"};
 public:
+    virtual Mode select_mode() = 0;
     virtual std::vector<Coord> read() = 0;
     virtual void board_creation(const Board* board, std::vector<const Figure*> ships) = 0;
     virtual void board_creation_finished(const Board* board) = 0;
