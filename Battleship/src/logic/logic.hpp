@@ -27,6 +27,7 @@ public:
     Board* fill_board();
 
     void play();
+    ~Game();
 };
 
 

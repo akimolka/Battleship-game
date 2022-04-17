@@ -80,3 +80,13 @@ void Game::play() {
     run(mode);
 }
 
+Game::~Game() {
+    delete interface;
+    delete board_gen;
+    delete shipset;
+    delete board_a;
+    delete board_b;
+    delete player_a;
+    delete player_b;
+}
+
