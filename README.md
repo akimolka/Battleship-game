@@ -23,8 +23,6 @@ Simply execute run.sh file
 
 ***Builder*** is used in filling the board. As a number of rules should be followed during ship arrangement, client does not have a straight access to the construction of the board and uses fill_board() method instead, which guides him through this intricate process
 
-***Flyweight*** idea is applied in creation of class StandartShips. Real objects are created only this class, elsewhere pointers are used.
-
 ### Architecture
 ###### class Game
 Метод ***play*** позволяет игроку выбрать желаемый режим (через метод интерфейса ***select_mode***), соответсвующе инициализирует внутренние поля класса (указатели на игроков и доски) и запускает игру через приватный метод ***run***.
