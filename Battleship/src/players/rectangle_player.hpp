@@ -19,7 +19,7 @@ public:
 
     Coord get_move() override;
     void report_success(HitResult result) override;
-    void report_losses(const Coord& shot, HitResult result, const Board* board) override;
+    void report_losses(const std::vector<std::pair<Coord, HitResult>>& losses, const Board* board) override;
 };
 
 #endif //BATTLESHIP_RECTANGLE_PLAYER_HPP

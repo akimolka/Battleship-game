@@ -7,31 +7,27 @@
 #include "players/rectangle_player.hpp"
 #include "players/random_player.hpp"
 #include "board_generators/random_board_generator.hpp"
-#include "ship_sets/ship_sets.hpp"
+#include "modes/ship_sets.hpp"
+#include "modes/modes.hpp"
 #include <queue>
-
-enum Mode { TWO_PLAYERS, AGAINST_RANDOM, AGAINST_DUMMY, AGAINST_PROFI };
 
 class Game {
     Interface* interface = new ConsoleInterface();
     BoardGenerator* board_gen = new RandomBoardGenerator();
-    const ShipSet* shipset;
+    const ShipSet* shipset = new StandardShips();
     Board* board_a;
     Board* board_b;
     Player* player_a;
     Player* player_b;
 
-    void run();
+    void run(Mode mode);
+    void set_ai();
 
 public:
-    Game(const ShipSet* shipset);
-
     Board* fill_board();
 
-    void add_board(Board* board);
-    void add_boards(Board* first_board, Board* second_board);
-
-    void play(Mode mode);
+    void play();
+    ~Game();
 };
 
 

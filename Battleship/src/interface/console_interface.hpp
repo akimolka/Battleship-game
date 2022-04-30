@@ -2,9 +2,6 @@
 #define BATTLESHIP_CONSOLE_INTERFACE_HPP
 
 #include "interface.hpp"
-#include "entities/figure.hpp"
-#include "entities/board.hpp"
-#include "entities/ship.hpp"
 #include <iostream>
 #include <sstream>
 
@@ -40,13 +37,17 @@ private:
     void draw_players_board(const Board* board);
 
 public:
+    Mode select_mode() override;
+    std::string enter_name() override;
     std::vector<Coord> read() override;
     void move(const std::string& name, const Board* board) override;
     void board_creation(const Board* board, std::vector<const Figure*> ships) override;
     void board_creation_finished(const Board* board) override;
     void report_success(HitResult result) override;
-    void report_losses(const std::string& name, const Coord& shot, HitResult result, const Board* board) override;
+    void report_losses(const std::string& name, const std::vector<std::pair<Coord, HitResult>>& losses,
+                       const Board* board) override;
     void winning_message(const std::string& name) override;
+    void change_players() override;
 };
 
 #endif //BATTLESHIP_CONSOLE_INTERFACE_HPP
