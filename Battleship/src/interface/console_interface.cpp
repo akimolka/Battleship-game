@@ -155,7 +155,6 @@ void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& 
         figure.standardize();
         height = std::max(height, figure.get_proportions().first);
     }
-    height++;
 
     std::vector<std::vector<int>> lines(height);
     for (int i = 0; i < ships.size(); i++) {
@@ -164,10 +163,11 @@ void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& 
     }
 
     for (auto& line : lines) {
+        height--;
         std::sort(line.begin(), line.end());
         for (int j = 0, place = 0; j < line.size(); j++, place++) {
             while (place < line[j]) {
-                cout << "   ";
+                cout << BLACK << (height == 0 ? "___" : "   ") << RESET;
                 place++;
             }
             cout << YELLOW << "[o]" << RESET;
