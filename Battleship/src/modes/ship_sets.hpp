@@ -21,4 +21,16 @@ public:
     std::vector<const Figure*> get() const override;
 };
 
+class TriangleShips: public ShipSet {
+    const Figure patrol_boat;
+    const Figure submarine;
+    const Figure destroyer;
+    //  ◊      ◊       ◊
+    //  ◊◊ x3  ◊◊◊ x2  ◊◊◊◊ x1
+
+public:
+    TriangleShips();
+    std::vector<const Figure*> get() const override;
+};
+
 #endif //BATTLESHIP_SHIP_SETS_HPP

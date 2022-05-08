@@ -10,3 +10,13 @@ std::vector<const Figure*> StandardShips::get() const {
             &destroyer, &destroyer,
             &carrier};
 }
+
+TriangleShips::TriangleShips()
+        : patrol_boat({{0, 0}, {1, 0}, {1, 1}}), submarine({{0, 0}, {1, 0}, {1, 1}, {1, 2}}),
+          destroyer({{0, 0}, {1, 0}, {1, 1}, {1, 2}, {1, 3}}) {};
+
+std::vector<const Figure*> TriangleShips::get() const {
+    return {&patrol_boat, &patrol_boat, &patrol_boat,
+            &submarine, &submarine,
+            &destroyer};
+}

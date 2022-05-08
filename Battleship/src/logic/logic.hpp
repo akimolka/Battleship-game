@@ -14,7 +14,7 @@
 class Game {
     Interface* interface = new ConsoleInterface();
     BoardGenerator* board_gen = new RandomBoardGenerator();
-    const ShipSet* shipset = new StandardShips();
+    const ShipSet* shipset = new TriangleShips();
     Board* board_a;
     Board* board_b;
     Player* player_a;

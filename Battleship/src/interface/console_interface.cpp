@@ -122,6 +122,7 @@ void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& 
         figure.standardize();
         height = std::max(height, figure.get_proportions().first);
     }
+    height++;
 
     std::vector<std::vector<int>> lines(height);
     for (int i = 0; i < ships.size(); i++) {
@@ -197,7 +198,6 @@ void ConsoleInterface::move(const std::string& name, const Board* board) {
 void ConsoleInterface::board_creation(const Board* board, std::vector<const Figure*> ships) {
     cout << YELLOW << "\nPlace the following ships via enumeration of their coordinates (eg B2 B3 B4)\n";
     draw_ships(ships);
-    cout << "\n";
     draw_board_init(board);
 }
 

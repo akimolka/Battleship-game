@@ -51,7 +51,7 @@ void Game::set_ai() {
     std::string name_a = interface->enter_name();
     board_b = board_gen->get(shipset);
     player_a = new LivePlayer(name_a, board_b, interface);
-    player_b = new RectanglePlayer(board_a);
+    player_b = new RandomPlayer(board_a);
 }
 
 void Game::play() {
