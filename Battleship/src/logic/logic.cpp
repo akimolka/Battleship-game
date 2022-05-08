@@ -56,6 +56,7 @@ void Game::set_ai() {
 
 void Game::play() {
     Mode mode = interface->select_mode();
+    shipset = interface->select_shipset();
 
     switch (mode) {
         case Mode::AI_MANUALLY:
@@ -91,7 +92,6 @@ Game::~Game() {
     delete player_b;
 }
 
-//TODO shipsets
 //TODO choice of shipsets
 //TODO board size
 //TODO AI

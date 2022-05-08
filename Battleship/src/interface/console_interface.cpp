@@ -31,6 +31,39 @@ Mode ConsoleInterface::select_mode() {
     return Mode(mode_int);
 }
 
+ShipSet* ConsoleInterface::select_shipset() {
+    std::vector<ShipSet*> shipsets = {new StandardShips(), new TriangleShips(), new FunnyShips()};
+    std::vector<std::string> names = {"standard shipset", "triangle shipset", "funny shipset"};
+    cout << YELLOW << "Now select the shipset\n" << RESET;
+    for (int type = 0; type < shipsets.size(); type++) {
+        cout << YELLOW << type + 1 << " - " << names[type] << ":\n" << RESET;
+        draw_ships(shipsets[type]->get());
+    }
+    std::string shipset_str;
+    int shipset_int = 0;
+    while (true){
+        cin >> shipset_str;
+        try {
+            shipset_int = std::stoi(shipset_str);
+        } catch (...) {
+            cout << RED << "Please enter a number\n" << RESET;
+        }
+        if (shipset_int < 1 || shipset_int > shipsets.size())
+            cout << RED << "Incorrect input" << std::endl << RESET;
+        else
+            break;
+    }
+    shipset_int--;
+
+    for (int type = 0; type < shipsets.size(); type++) {
+        if (type == shipset_int)
+            continue;
+        delete shipsets[type];
+    }
+
+    return shipsets[shipset_int];
+}
+
 std::string ConsoleInterface::enter_name() {
     cout << YELLOW << "Enter your name\n" << RESET;
     std::string name;
