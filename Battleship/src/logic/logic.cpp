@@ -64,6 +64,7 @@ void Game::play() {
             break;
         case Mode::AI_GENERATED:
             board_a = board_gen->get(shipset);
+            interface->board_generation_finished(board_a);
             set_ai();
             break;
         case Mode::TWO_LIVE:
@@ -90,3 +91,7 @@ Game::~Game() {
     delete player_b;
 }
 
+//TODO shipsets
+//TODO choice of shipsets
+//TODO board size
+//TODO AI

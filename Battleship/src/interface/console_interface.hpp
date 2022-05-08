@@ -43,6 +43,7 @@ public:
     void move(const std::string& name, const Board* board) override;
     void board_creation(const Board* board, std::vector<const Figure*> ships) override;
     void board_creation_finished(const Board* board) override;
+    void board_generation_finished(const Board* board) override;
     void report_success(HitResult result) override;
     void report_losses(const std::string& name, const std::vector<std::pair<Coord, HitResult>>& losses,
                        const Board* board) override;

@@ -208,6 +208,12 @@ void ConsoleInterface::board_creation_finished(const Board* board) {
 }
 
 
+void ConsoleInterface::board_generation_finished(const Board* board) {
+    cout << YELLOW << "\nYour board was generated for you. Here it is:\n" << RESET;
+    draw_board_init(board);
+}
+
+
 void ConsoleInterface::report_success(HitResult result) {
     switch (result) {
         case HitResult::MISS:

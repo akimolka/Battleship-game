@@ -15,6 +15,7 @@ public:
     virtual std::vector<Coord> read() = 0;
     virtual void board_creation(const Board* board, std::vector<const Figure*> ships) = 0;
     virtual void board_creation_finished(const Board* board) = 0;
+    virtual void board_generation_finished(const Board* board) = 0;
     virtual void move(const std::string& name, const Board* board) = 0;
     virtual void report_success(HitResult result) = 0;
     virtual void report_losses(const std::string& name, const std::vector<std::pair<Coord, HitResult>>& losses,

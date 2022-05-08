@@ -1,9 +1,10 @@
 #include "random_player.hpp"
 
-RandomPlayer::RandomPlayer(const Board* board): Player(board, "AI firing randomly") {}
+RandomPlayer::RandomPlayer(const Board* board): Player(board, "AI firing randomly") {
+    std::srand(std::time(nullptr));
+}
 
 Coord RandomPlayer::get_move() {
-    std::srand(std::time(nullptr));
     int x = rand() % Board::size;
     int y = rand() % Board::size;
     return {x, y};
