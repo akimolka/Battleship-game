@@ -10,16 +10,18 @@ public:
     virtual ~ShipSet() = default;
 };
 
+
 class StandardShips: public ShipSet {
-    const Figure patrol_boat;  // ◊
-    const Figure submarine;    // ◊◊
-    const Figure destroyer;   // ◊◊◊
-    const Figure carrier;      // ◊◊◊◊
+    const Figure patrol_boat;  // ◊    x4
+    const Figure submarine;    // ◊◊   x3
+    const Figure destroyer;    // ◊◊◊  x2
+    const Figure carrier;      // ◊◊◊◊ x1
 
 public:
     StandardShips();
     std::vector<const Figure*> get() const override;
 };
+
 
 class TriangleShips: public ShipSet {
     const Figure patrol_boat;
@@ -30,6 +32,20 @@ class TriangleShips: public ShipSet {
 
 public:
     TriangleShips();
+    std::vector<const Figure*> get() const override;
+};
+
+
+class FunnyShips: public ShipSet {
+    const Figure zigzag;
+    const Figure t_shape;
+    const Figure c_shape;
+    //  ◊◊       ◊      ◊◊
+    //   ◊◊ x2   ◊◊ x2   ◊ x2
+    //           ◊      ◊◊
+
+public:
+    FunnyShips();
     std::vector<const Figure*> get() const override;
 };
 
