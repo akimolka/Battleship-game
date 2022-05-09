@@ -12,15 +12,15 @@ void Game::run(Mode mode) {
         HitResult result = boards[(turn + 1) % 2]->hit(shot);
         players[turn]->report_success(result);
         losses.emplace_back(shot, result);
-        if (result == HitResult::MISS) {
+        if (result == HitResult::KILL)
+            count[(turn + 1) % 2]--;
+        if (result == HitResult::MISS || (result == HitResult::KILL && !count[(turn + 1) % 2])) {
             if (mode == Mode::TWO_LIVE)
                 interface->change_players();
             turn = (turn + 1) % 2;
             players[turn]->report_losses(losses, boards[turn]);
             losses.clear();
         }
-        else if (result == HitResult::KILL)
-            count[(turn + 1) % 2]--;
     }
     if (count[0])
         interface->winning_message(player_a->name);
@@ -56,6 +56,7 @@ void Game::set_ai() {
 
 void Game::play() {
     Mode mode = interface->select_mode();
+    board_size = interface->select_board_size();
     shipset = interface->select_shipset(board_size);
 
     switch (mode) {
@@ -91,9 +92,5 @@ Game::~Game() {
     delete player_a;
     delete player_b;
 }
-
-//TODO board size
-// board constructor
-// coord
 
 //TODO AI

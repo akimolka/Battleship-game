@@ -5,13 +5,14 @@
 #include "entities/board.hpp"
 #include "entities/ship.hpp"
 #include "modes/modes.hpp"
-#include "modes/ship_sets.hpp"
+#include "modes/ship_set.hpp"
 
 class Interface {
 protected:
     std::vector<std::string> string_hit_results = {"none", "miss", "hit", "kill"};
 public:
     virtual Mode select_mode() = 0;
+    virtual int select_board_size() = 0;
     virtual ShipSet* select_shipset(int board_size) = 0;
     virtual std::string enter_name() = 0;
     virtual std::vector<Coord> read() = 0;

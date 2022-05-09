@@ -31,37 +31,54 @@ Mode ConsoleInterface::select_mode() {
     return Mode(mode_int);
 }
 
-ShipSet* ConsoleInterface::select_shipset(int board_size) {
-    std::vector<ShipSet*> shipsets = {new StandardShips(), new TriangleShips(), new FunnyShips()};
-    std::vector<std::string> names = {"standard shipset", "triangle shipset", "funny shipset"};
-    cout << YELLOW << "Now select the shipset\n" << RESET;
-    for (int type = 0; type < shipsets.size(); type++) {
-        cout << YELLOW << type + 1 << " - " << names[type] << ":\n" << RESET;
-        draw_ships(shipsets[type]->get(), board_size);
-    }
-    std::string shipset_str;
-    int shipset_int = 0;
+int ConsoleInterface::select_board_size() {
+    cout << YELLOW << "Select a board size: from 3 through 10\n";
+    std::string size_str;
+    int size_int = 0;
     while (true){
-        cin >> shipset_str;
+        cin >> size_str;
         try {
-            shipset_int = std::stoi(shipset_str);
+            size_int = std::stoi(size_str);
+        } catch (...) {
+            cout << RED << "Error. Please enter a number\n" << RESET;
+        }
+        if (size_int < 3 || size_int > 10)
+            cout << RED << "Incorrect input. Your number should be >= 3 and <= 10" << std::endl << RESET;
+        else
+            break;
+    }
+    return size_int;
+}
+
+ShipSet* ConsoleInterface::select_shipset(int board_size) {
+    ShipSet* shipset = new ShipSet;
+    std::vector<ShipSetName> shipset_names = {ShipSetName::STANDART, ShipSetName::TRIANGLE, ShipSetName::FUNNY};
+    std::vector<std::string> str_names = {"standard shipset", "triangle shipset", "funny shipset"};
+    cout << YELLOW << "Now select the shipset\n" << RESET;
+    for (int type = 0; type < shipset_names.size(); type++) {
+        cout << YELLOW << type + 1 << " - " << str_names[type] << ":\n" << RESET;
+        shipset->build(shipset_names[type], board_size);
+        draw_ships(shipset->get(), board_size);
+    }
+
+    std::string choice_str;
+    int choice_int = 0;
+    while (true){
+        cin >> choice_str;
+        try {
+            choice_int = std::stoi(choice_str);
         } catch (...) {
             cout << RED << "Please enter a number\n" << RESET;
         }
-        if (shipset_int < 1 || shipset_int > shipsets.size())
+        if (choice_int < 1 || choice_int > shipset_names.size())
             cout << RED << "Incorrect input" << std::endl << RESET;
         else
             break;
     }
-    shipset_int--;
+    choice_int--;
 
-    for (int type = 0; type < shipsets.size(); type++) {
-        if (type == shipset_int)
-            continue;
-        delete shipsets[type];
-    }
-
-    return shipsets[shipset_int];
+    shipset->build(shipset_names[choice_int], board_size);
+    return shipset;
 }
 
 std::string ConsoleInterface::enter_name() {
@@ -141,7 +158,7 @@ std::pair<int, int> ConsoleInterface::get_grid_proportions(const std::vector<con
     for (auto& figure: ships) {
         auto curr_span = figure->get_proportions();
         if (curr_span.first > curr_span.second)
-            std::swap(span.first, span.second);
+            std::swap(curr_span.first, curr_span.second);
         span.first = std::max(span.first, curr_span.first);
         span.second = std::max(span.second, curr_span.second);
     }
@@ -186,7 +203,7 @@ void ConsoleInterface::draw_ships(const std::vector<const Figure*>& ships, int b
         std::vector<Figure> in_one_line;
         for (int j = i; j < std::min((int)ships.size(), i + cnt_line); j++) {
             in_one_line.emplace_back(*ships[j]);
-            auto prop = ships[i]->get_proportions();
+            auto prop = ships[j]->get_proportions();
             if (prop.first > prop.second)
                 in_one_line.back().rotate();
         }

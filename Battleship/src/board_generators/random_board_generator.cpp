@@ -1,8 +1,8 @@
 #include "random_board_generator.hpp"
 
-bool RandomBoardGenerator::check_figure_coords(const Figure& figure) {
+bool RandomBoardGenerator::check_figure_coords(const Figure& figure, int board_size) {
     for (const Coord& coord : figure.get_coords())
-        if (coord.x < 0 || coord.y < 0 || coord.x >= size || coord.y >= size)
+        if (coord.x < 0 || coord.y < 0 || coord.x >= board_size || coord.y >= board_size)
             return false;
     return true;
 }
@@ -10,16 +10,16 @@ bool RandomBoardGenerator::check_figure_coords(const Figure& figure) {
 
 bool RandomBoardGenerator::place_figure(Figure& figure, Board* board) {
     for (int random_time = 0; random_time < max_random_times; random_time++) {
-        int x = rand() % size;
-        int y = rand() % size;
+        int x = rand() % board->size;
+        int y = rand() % board->size;
         figure.shift_to({x, y});
-        if (check_figure_coords(figure) && board->add_ships(figure.get_coords()))
+        if (check_figure_coords(figure, board->size) && board->add_ships(figure.get_coords()))
             return true;
     }
-    for (int x = 0; x < size; x++)
-        for (int y = 0; y < size; y++) {
+    for (int x = 0; x < board->size; x++)
+        for (int y = 0; y < board->size; y++) {
             figure.shift_to({x, y});
-            if (check_figure_coords(figure) && board->add_ships(figure.get_coords()))
+            if (check_figure_coords(figure, board->size) && board->add_ships(figure.get_coords()))
                 return true;
         }
     return false;

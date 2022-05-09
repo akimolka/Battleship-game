@@ -15,7 +15,7 @@ HitResult Ship::hit(const Coord& coord) {
     int pos = 0;
     for (; pos < body.size(); pos++)
         if (body[pos] == coord) break;
-    if (state[pos] == HitResult::NONE) {
+    if (state[pos] != HitResult::KILL) {
         state[pos] = HitResult::HIT;
         result = HitResult::HIT;
     }

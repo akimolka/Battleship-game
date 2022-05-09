@@ -37,6 +37,7 @@ private:
 
 public:
     Mode select_mode() override;
+    int select_board_size() override;
     ShipSet* select_shipset(int board_size) override;
     std::string enter_name() override;
     std::vector<Coord> read() override;
