@@ -18,7 +18,7 @@ class RandomBoardGenerator: public BoardGenerator {
 
 public:
     RandomBoardGenerator();
-    Board* get(const ShipSet* shipset) const override;
+    Board* get(const ShipSet* shipset, int board_size) const override;
 };
 
 #endif //BATTLESHIP_RANDOM_BOARD_GENERATOR_HPP

@@ -7,7 +7,7 @@
 struct Coord {
     int x;
     int y;
-    explicit Coord(const std::string& str);
+    explicit Coord(std::string str);
     Coord(int x, int y);
     Coord();
     bool operator==(const Coord& other) const;

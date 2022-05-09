@@ -7,7 +7,7 @@ class BoardGenerator {
 protected:
     static const int size = 10;
 public:
-    virtual Board* get(const ShipSet* shipset) const = 0;
+    virtual Board* get(const ShipSet* shipset, int board_size) const = 0;
     virtual ~BoardGenerator() = default;
 };
 

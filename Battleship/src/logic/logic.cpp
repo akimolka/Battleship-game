@@ -29,7 +29,7 @@ void Game::run(Mode mode) {
 }
 
 Board* Game::fill_board() {
-    Board* board = new Board();
+    Board* board = new Board(board_size);
     std::vector<const Figure*> ships_to_place = shipset->get();
     interface->board_creation(board, ships_to_place);
     while (true) {
@@ -49,14 +49,14 @@ Board* Game::fill_board() {
 
 void Game::set_ai() {
     std::string name_a = interface->enter_name();
-    board_b = board_gen->get(shipset);
+    board_b = board_gen->get(shipset, board_size);
     player_a = new LivePlayer(name_a, board_b, interface);
     player_b = new RandomPlayer(board_a);
 }
 
 void Game::play() {
     Mode mode = interface->select_mode();
-    shipset = interface->select_shipset();
+    shipset = interface->select_shipset(board_size);
 
     switch (mode) {
         case Mode::AI_MANUALLY:
@@ -64,7 +64,7 @@ void Game::play() {
             set_ai();
             break;
         case Mode::AI_GENERATED:
-            board_a = board_gen->get(shipset);
+            board_a = board_gen->get(shipset, board_size);
             interface->board_generation_finished(board_a);
             set_ai();
             break;
@@ -92,6 +92,8 @@ Game::~Game() {
     delete player_b;
 }
 
-//TODO choice of shipsets
 //TODO board size
+// board constructor
+// coord
+
 //TODO AI

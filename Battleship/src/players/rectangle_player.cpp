@@ -1,8 +1,8 @@
 #include "rectangle_player.hpp"
 
 Coord RectanglePlayer::find_interesting(int x, int y) {
-    for (int i = x; true; i = (i + 1) % Board::size)
-        for (int j = y, cnt = 0; cnt < Board::size; j = (j + 1) % Board::size, cnt++)
+    for (int i = x; true; i = (i + 1) % board_size)
+        for (int j = y, cnt = 0; cnt < board_size; j = (j + 1) % board_size, cnt++)
             if (interesting[i][j])
                 return {i, j};
 }
@@ -34,7 +34,7 @@ void RectanglePlayer::make_neighbours_potential(const Coord& coord) {
 
 
 RectanglePlayer::RectanglePlayer(const Board* board): Player(board, "Adequate AI player") {
-    interesting.resize(Board::size, std::vector<bool> (Board::size, true));
+    interesting.resize(board_size, std::vector<bool> (board_size, true));
 }
 
 
@@ -47,8 +47,8 @@ Coord RectanglePlayer::get_move() {
     }
 
     std::srand(std::time(nullptr));
-    int starting_x = rand() % Board::size;
-    int starting_y = rand() % Board::size;
+    int starting_x = rand() % board_size;
+    int starting_y = rand() % board_size;
     potential_moves.push(find_interesting(starting_x, starting_y));
     return potential_moves.front();
 }

@@ -37,7 +37,7 @@ bool Board::is_valid() {
     return true;
 }
 
-Board::Board() {
+Board::Board(int board_size): size(board_size) {
     board.resize(size, std::vector<HitResult> (size));
     ship_indices.resize(size, std::vector<int> (size, -1));
 }

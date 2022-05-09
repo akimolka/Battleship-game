@@ -5,8 +5,8 @@ RandomPlayer::RandomPlayer(const Board* board): Player(board, "AI firing randoml
 }
 
 Coord RandomPlayer::get_move() {
-    int x = rand() % Board::size;
-    int y = rand() % Board::size;
+    int x = rand() % board_size;
+    int y = rand() % board_size;
     return {x, y};
 }
 

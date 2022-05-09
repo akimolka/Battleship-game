@@ -1,15 +1,13 @@
 #include "coord.hpp"
 
-Coord::Coord(const std::string& str) {
-    if ('A' <= str[0] && str[0] <= 'J') // todo deal with invalid input
-        x = str[0] - 'A';               // todo depend on size, not number 10
+Coord::Coord(std::string str) {
+    if (str[0] < 'a')
+        x = str[0] - 'A';
     else
         x = str[0] - 'a';
 
-    if (str.size() == 3)
-        y = 9;
-    else
-        y = str[1] - '1';
+    str.erase(0, 1);
+    y = std::stoi(str) - 1;
 }
 
 Coord::Coord(int x, int y): x(x), y(y) {};

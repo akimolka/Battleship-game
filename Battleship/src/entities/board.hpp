@@ -16,8 +16,8 @@ class Board {
     bool is_valid();
 
 public:
-    static const int size = 10;
-    Board();
+    const int size = 10;
+    Board(int board_size);
 
     bool add_ships(const Ship& ship);
     bool add_ships(const std::vector<Ship>& additional);

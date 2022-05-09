@@ -31,10 +31,10 @@ RandomBoardGenerator::RandomBoardGenerator() {
 }
 
 
-Board* RandomBoardGenerator::get(const ShipSet* shipset) const {
+Board* RandomBoardGenerator::get(const ShipSet* shipset, int board_size) const {
     Board* board;
     for (int fill_board_try = 0; fill_board_try < max_fill_board_tries; fill_board_try++) {
-        board = new Board();
+        board = new Board(board_size);
         std::vector<const Figure*> ships_to_place = shipset->get();
         bool board_filled = true;
         while (!ships_to_place.empty()) {

@@ -15,6 +15,7 @@ class Game {
     Interface* interface = new ConsoleInterface();
     BoardGenerator* board_gen = new RandomBoardGenerator();
     const ShipSet* shipset;
+    const int board_size = 10;
     Board* board_a;
     Board* board_b;
     Player* player_a;
