@@ -15,7 +15,7 @@ public:
     virtual int select_board_size() = 0;
     virtual ShipSet* select_shipset(int board_size) = 0;
     virtual std::string enter_name() = 0;
-    virtual std::vector<Coord> read() = 0;
+    virtual std::vector<Coord> read(int board_size) = 0;
     virtual void board_creation(const Board* board, std::vector<const Figure*> ships) = 0;
     virtual void board_creation_finished(const Board* board) = 0;
     virtual void board_generation_finished(const Board* board) = 0;

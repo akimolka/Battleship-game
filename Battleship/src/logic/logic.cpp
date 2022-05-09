@@ -33,7 +33,7 @@ Board* Game::fill_board() {
     std::vector<const Figure*> ships_to_place = shipset->get();
     interface->board_creation(board, ships_to_place);
     while (true) {
-        std::vector<Coord> input_figure = interface->read();
+        std::vector<Coord> input_figure = interface->read(board->size);
         for (auto it = ships_to_place.begin(); it < ships_to_place.end(); it++)
             if (**it == input_figure && board->add_ships(input_figure)) {
                 ships_to_place.erase(it);

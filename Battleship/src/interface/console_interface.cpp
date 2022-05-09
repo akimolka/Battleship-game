@@ -1,12 +1,12 @@
 #include "console_interface.hpp"
 
-bool ConsoleInterface::check_input(const std::string& word) {
+bool ConsoleInterface::check_input(const std::string& word, int board_size) {
     if (word.size() < 2 || word.size() > 3)
         return false;
-    if (!('a' <= word[0] && word[0] <= 'j' || 'A' <= word[0] && word[0] <= 'J'))
+    if (!('a' <= word[0] && word[0] <= 'a' + board_size || 'A' <= word[0] && word[0] <= 'A' + board_size))
         return false;
-    return (word.size() == 2 && '0' <= word[1] && word[1] <= '9') ||
-           (word.size() == 3 && word[1] == '1' && word[2] == '0');
+    return (word.size() == 2 && '1' <= word[1] && word[1] <= '0' + board_size) ||
+           (board_size == 10 && word.size() == 3 && word[1] == '1' && word[2] == '0');
 }
 
 Mode ConsoleInterface::select_mode() {
@@ -82,13 +82,13 @@ ShipSet* ConsoleInterface::select_shipset(int board_size) {
 }
 
 std::string ConsoleInterface::enter_name() {
-    cout << YELLOW << "Enter your name\n" << RESET;
+    cout << YELLOW << "\nEnter your name\n" << RESET;
     std::string name;
     cin >> name;
     return name;
 }
 
-std::vector<Coord> ConsoleInterface::read() {
+std::vector<Coord> ConsoleInterface::read(int board_size) {
     std::string line, word;
     do {
         std::getline(std::cin, line);
@@ -98,7 +98,7 @@ std::vector<Coord> ConsoleInterface::read() {
 
     std::vector<Coord> ans;
     while (ss >> word) {
-        if (!check_input(word)) {
+        if (!check_input(word, board_size)) {
             std::cout << "Incorrect input" << std::endl;
             return {};
         }

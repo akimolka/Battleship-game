@@ -7,7 +7,7 @@ LivePlayer::LivePlayer(const std::string& name, const Board* board, Interface* i
 Coord LivePlayer::get_move() {
     interface->move(name, opponent_board);
     while (true) {
-        std::vector<Coord> shot = interface->read();
+        std::vector<Coord> shot = interface->read(board_size);
         if (shot.size() == 1)
             return shot[0];
     }
