@@ -28,21 +28,24 @@ using std::cout;
 
 class ConsoleInterface: public Interface {
 private:
-    static bool check_input(const std::string& word);
+    static bool check_input(const std::string& word, int board_size);
     void draw_board_init(const Board* board);
     void draw_opponent_board(const Board* board);
     std::pair<int, int> get_grid_proportions(const std::vector<const Figure*>& ships);
-    void draw_ships_in_line(int block_size, std::vector<Figure>&& ships);
-    void draw_ships(const std::vector<const Figure*>& ships);
+    void draw_ships_in_line(int block_size, std::vector<Figure>&& ships, int line_size);
     void draw_players_board(const Board* board);
 
 public:
     Mode select_mode() override;
+    int select_board_size() override;
+    ShipSet* select_shipset(int board_size) override;
     std::string enter_name() override;
-    std::vector<Coord> read() override;
+    std::vector<Coord> read(int board_size) override;
     void move(const std::string& name, const Board* board) override;
+    void draw_ships(const std::vector<const Figure*>& ships, int board_size) override;
     void board_creation(const Board* board, std::vector<const Figure*> ships) override;
     void board_creation_finished(const Board* board) override;
+    void board_generation_finished(const Board* board) override;
     void report_success(HitResult result) override;
     void report_losses(const std::string& name, const std::vector<std::pair<Coord, HitResult>>& losses,
                        const Board* board) override;

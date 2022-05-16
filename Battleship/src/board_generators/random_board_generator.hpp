@@ -3,7 +3,7 @@
 
 #include "entities/figure.hpp"
 #include "entities/board.hpp"
-#include "modes/ship_sets.hpp"
+#include "modes/ship_set.hpp"
 #include "board_generator.hpp"
 #include <ctime>
 #include <cstdlib>
@@ -13,12 +13,12 @@ class RandomBoardGenerator: public BoardGenerator {
     static const int max_place_figure_tries = 3;
     static const int max_random_times = 7;
 
-    static bool check_figure_coords(const Figure& figure);
+    static bool check_figure_coords(const Figure& figure, int board_size);
     static bool place_figure(Figure& figure, Board* board);
 
 public:
     RandomBoardGenerator();
-    Board* get(const ShipSet* shipset) const override;
+    Board* get(const ShipSet* shipset, int board_size) const override;
 };
 
 #endif //BATTLESHIP_RANDOM_BOARD_GENERATOR_HPP

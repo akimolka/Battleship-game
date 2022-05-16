@@ -1,12 +1,12 @@
 #include "console_interface.hpp"
 
-bool ConsoleInterface::check_input(const std::string& word) {
+bool ConsoleInterface::check_input(const std::string& word, int board_size) {
     if (word.size() < 2 || word.size() > 3)
         return false;
-    if (!('a' <= word[0] && word[0] <= 'j' || 'A' <= word[0] && word[0] <= 'J'))
+    if (!('a' <= word[0] && word[0] <= 'a' + board_size || 'A' <= word[0] && word[0] <= 'A' + board_size))
         return false;
-    return (word.size() == 2 && '0' <= word[1] && word[1] <= '9') ||
-           (word.size() == 3 && word[1] == '1' && word[2] == '0');
+    return (word.size() == 2 && '1' <= word[1] && word[1] <= '0' + board_size) ||
+           (board_size == 10 && word.size() == 3 && word[1] == '1' && word[2] == '0');
 }
 
 Mode ConsoleInterface::select_mode() {
@@ -31,14 +31,64 @@ Mode ConsoleInterface::select_mode() {
     return Mode(mode_int);
 }
 
+int ConsoleInterface::select_board_size() {
+    cout << YELLOW << "Select a board size: from 3 through 10\n";
+    std::string size_str;
+    int size_int = 0;
+    while (true){
+        cin >> size_str;
+        try {
+            size_int = std::stoi(size_str);
+        } catch (...) {
+            cout << RED << "Error. Please enter a number\n" << RESET;
+        }
+        if (size_int < 3 || size_int > 10)
+            cout << RED << "Incorrect input. Your number should be >= 3 and <= 10" << std::endl << RESET;
+        else
+            break;
+    }
+    return size_int;
+}
+
+ShipSet* ConsoleInterface::select_shipset(int board_size) {
+    ShipSet* shipset = new ShipSet;
+    std::vector<ShipSetName> shipset_names = {ShipSetName::STANDART, ShipSetName::TRIANGLE, ShipSetName::FUNNY};
+    std::vector<std::string> str_names = {"standard shipset", "triangle shipset", "funny shipset"};
+    cout << YELLOW << "Now select the shipset\n" << RESET;
+    for (int type = 0; type < shipset_names.size(); type++) {
+        cout << YELLOW << type + 1 << " - " << str_names[type] << ":\n" << RESET;
+        shipset->build(shipset_names[type], board_size);
+        draw_ships(shipset->get(), board_size);
+    }
+
+    std::string choice_str;
+    int choice_int = 0;
+    while (true){
+        cin >> choice_str;
+        try {
+            choice_int = std::stoi(choice_str);
+        } catch (...) {
+            cout << RED << "Please enter a number\n" << RESET;
+        }
+        if (choice_int < 1 || choice_int > shipset_names.size())
+            cout << RED << "Incorrect input" << std::endl << RESET;
+        else
+            break;
+    }
+    choice_int--;
+
+    shipset->build(shipset_names[choice_int], board_size);
+    return shipset;
+}
+
 std::string ConsoleInterface::enter_name() {
-    cout << YELLOW << "Enter your name\n" << RESET;
+    cout << YELLOW << "\nEnter your name\n" << RESET;
     std::string name;
     cin >> name;
     return name;
 }
 
-std::vector<Coord> ConsoleInterface::read() {
+std::vector<Coord> ConsoleInterface::read(int board_size) {
     std::string line, word;
     do {
         std::getline(std::cin, line);
@@ -48,7 +98,7 @@ std::vector<Coord> ConsoleInterface::read() {
 
     std::vector<Coord> ans;
     while (ss >> word) {
-        if (!check_input(word)) {
+        if (!check_input(word, board_size)) {
             std::cout << "Incorrect input" << std::endl;
             return {};
         }
@@ -59,7 +109,7 @@ std::vector<Coord> ConsoleInterface::read() {
 
 
 void ConsoleInterface::draw_board_init(const Board* board) {
-    int n = Board::size;
+    int n = board->size;
     const std::vector<std::vector<int>>& ships = board->get_ships();
     cout << "  ";
     for (int j = 1; j <= n; j++)
@@ -76,7 +126,7 @@ void ConsoleInterface::draw_board_init(const Board* board) {
 
 
 void ConsoleInterface::draw_opponent_board(const Board* board) {
-    int n = Board::size;
+    int n = board->size;
     const std::vector<std::vector<HitResult>>& scheme = board->get_board();
     cout << "  ";
     for (int j = 1; j <= n; j++)
@@ -108,7 +158,7 @@ std::pair<int, int> ConsoleInterface::get_grid_proportions(const std::vector<con
     for (auto& figure: ships) {
         auto curr_span = figure->get_proportions();
         if (curr_span.first > curr_span.second)
-            std::swap(span.first, span.second);
+            std::swap(curr_span.first, curr_span.second);
         span.first = std::max(span.first, curr_span.first);
         span.second = std::max(span.second, curr_span.second);
     }
@@ -116,13 +166,12 @@ std::pair<int, int> ConsoleInterface::get_grid_proportions(const std::vector<con
 }
 
 
-void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& ships) {
+void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& ships, int line_size) {
     int height = 0;
     for (auto& figure : ships) {
         figure.standardize();
         height = std::max(height, figure.get_proportions().first);
     }
-
     std::vector<std::vector<int>> lines(height);
     for (int i = 0; i < ships.size(); i++) {
         for (auto& coord : ships[i].get_coords())
@@ -130,39 +179,41 @@ void ConsoleInterface::draw_ships_in_line(int block_size, std::vector<Figure>&& 
     }
 
     for (auto& line : lines) {
+        height--;
         std::sort(line.begin(), line.end());
         for (int j = 0, place = 0; j < line.size(); j++, place++) {
             while (place < line[j]) {
-                cout << "   ";
+                cout << BLACK << (height == 0 ? "___" : "   ") << RESET;
                 place++;
             }
             cout << YELLOW << "[o]" << RESET;
         }
+        for (int pos = line.back() + 1; pos < line_size; pos++)
+            cout << BLACK << (height == 0 ? "___" : "   ") << RESET;
         cout << "\n";
     }
 }
 
 
-void ConsoleInterface::draw_ships(const std::vector<const Figure*>& ships) {
+void ConsoleInterface::draw_ships(const std::vector<const Figure*>& ships, int board_size) {
     auto grid = get_grid_proportions(ships);
-    int n = Board::size;
-    int cnt_line = (n + 2) / (grid.second + 1);
-    int block_width = (n + 2) / cnt_line;
+    int cnt_line = (board_size + 2) / (grid.second + 1);
+    int block_width = (board_size + 2) / cnt_line;
     for (int i = 0; i < ships.size(); i += cnt_line) {
         std::vector<Figure> in_one_line;
         for (int j = i; j < std::min((int)ships.size(), i + cnt_line); j++) {
             in_one_line.emplace_back(*ships[j]);
-            auto prop = ships[i]->get_proportions();
+            auto prop = ships[j]->get_proportions();
             if (prop.first > prop.second)
                 in_one_line.back().rotate();
         }
-        draw_ships_in_line(block_width, std::move(in_one_line));
+        draw_ships_in_line(block_width, std::move(in_one_line), board_size + 1);
     }
 }
 
 
 void ConsoleInterface::draw_players_board(const Board* board) {
-    int n = Board::size;
+    int n = board->size;
     const std::vector<std::vector<HitResult>>& scheme = board->get_board();
     const std::vector<std::vector<int>>& ships = board->get_ships();
     cout << "  ";
@@ -196,14 +247,19 @@ void ConsoleInterface::move(const std::string& name, const Board* board) {
 
 void ConsoleInterface::board_creation(const Board* board, std::vector<const Figure*> ships) {
     cout << YELLOW << "\nPlace the following ships via enumeration of their coordinates (eg B2 B3 B4)\n";
-    draw_ships(ships);
-    cout << "\n";
+    draw_ships(ships, board->size);
     draw_board_init(board);
 }
 
 
 void ConsoleInterface::board_creation_finished(const Board* board) {
     cout << YELLOW << "\nYou have successfully filled the board. Here it is:\n" << RESET;
+    draw_board_init(board);
+}
+
+
+void ConsoleInterface::board_generation_finished(const Board* board) {
+    cout << YELLOW << "\nYour board was generated for you. Here it is:\n" << RESET;
     draw_board_init(board);
 }
 

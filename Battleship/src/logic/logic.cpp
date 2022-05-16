@@ -12,15 +12,15 @@ void Game::run(Mode mode) {
         HitResult result = boards[(turn + 1) % 2]->hit(shot);
         players[turn]->report_success(result);
         losses.emplace_back(shot, result);
-        if (result == HitResult::MISS) {
+        if (result == HitResult::KILL)
+            count[(turn + 1) % 2]--;
+        if (result == HitResult::MISS || (result == HitResult::KILL && !count[(turn + 1) % 2])) {
             if (mode == Mode::TWO_LIVE)
                 interface->change_players();
             turn = (turn + 1) % 2;
             players[turn]->report_losses(losses, boards[turn]);
             losses.clear();
         }
-        else if (result == HitResult::KILL)
-            count[(turn + 1) % 2]--;
     }
     if (count[0])
         interface->winning_message(player_a->name);
@@ -29,11 +29,11 @@ void Game::run(Mode mode) {
 }
 
 Board* Game::fill_board() {
-    Board* board = new Board();
+    Board* board = new Board(board_size);
     std::vector<const Figure*> ships_to_place = shipset->get();
     interface->board_creation(board, ships_to_place);
     while (true) {
-        std::vector<Coord> input_figure = interface->read();
+        std::vector<Coord> input_figure = interface->read(board->size);
         for (auto it = ships_to_place.begin(); it < ships_to_place.end(); it++)
             if (**it == input_figure && board->add_ships(input_figure)) {
                 ships_to_place.erase(it);
@@ -49,13 +49,15 @@ Board* Game::fill_board() {
 
 void Game::set_ai() {
     std::string name_a = interface->enter_name();
-    board_b = board_gen->get(shipset);
+    board_b = board_gen->get(shipset, board_size);
     player_a = new LivePlayer(name_a, board_b, interface);
-    player_b = new RectanglePlayer(board_a);
+    player_b = new RandomPlayer(board_a);
 }
 
 void Game::play() {
     Mode mode = interface->select_mode();
+    board_size = interface->select_board_size();
+    shipset = interface->select_shipset(board_size);
 
     switch (mode) {
         case Mode::AI_MANUALLY:
@@ -63,7 +65,8 @@ void Game::play() {
             set_ai();
             break;
         case Mode::AI_GENERATED:
-            board_a = board_gen->get(shipset);
+            board_a = board_gen->get(shipset, board_size);
+            interface->board_generation_finished(board_a);
             set_ai();
             break;
         case Mode::TWO_LIVE:
@@ -90,3 +93,4 @@ Game::~Game() {
     delete player_b;
 }
 
+//TODO AI

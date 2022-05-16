@@ -11,12 +11,13 @@
 class Player {
 protected:
     const Board* opponent_board;
+    const int board_size;
 
     inline static const std::vector<const std::pair<int, int>> neighbour_moves = {{-1, -1}, {-1, 0}, {-1, 1},
                                                                                   {0,  -1}, {0, 1},
                                                                                   {1,  -1}, {1, 0}, {1, 1}};
 
-    static bool is_valid(const Coord& coord);
+    bool is_valid(const Coord& coord);
     void mark_uninteresting_rec(const Coord& coord, std::vector<std::vector<bool>>& interesting,
                                 std::vector<std::vector<bool>>& used);
     void mark_uninteresting(const Coord& coord, std::vector<std::vector<bool>>& interesting);
